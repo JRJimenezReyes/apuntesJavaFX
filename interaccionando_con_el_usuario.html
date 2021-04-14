@@ -1,0 +1,338 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html lang="es" xml:lang="es" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<link rel="stylesheet" type="text/css" href="base.css" />
+<link rel="stylesheet" type="text/css" href="exe_highlighter.css" />
+<link rel="stylesheet" type="text/css" href="content.css" />
+<link rel="stylesheet" type="text/css" href="nav.css" />
+<meta http-equiv="content-type" content="text/html;  charset=utf-8" />
+<title>Interaccionando con el usuario | JavaFX </title>
+<link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
+<meta http-equiv="content-language" content="es" />
+<meta name="author" content="José Ramón Jiménez Reyes" />
+<meta name="generator" content="eXeLearning 2.5.1 - exelearning.net" />
+<script type="text/javascript" src="exe_jquery.js"></script>
+<script type="text/javascript" src="exe_highlighter.js"></script>
+<script type="text/javascript" src="common_i18n.js"></script>
+<script type="text/javascript" src="common.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1" /></head>
+<body class="exe-web-site" id="exe-node-3"><script type="text/javascript">document.body.className+=" js"</script>
+<div id="content">
+<p id="skipNav"><a href="#main" class="sr-av">Saltar la navegación</a></p>
+<div id="header" ><div id="headerContent">JavaFX</div></div>
+<div id="siteNav">
+<ul>
+   <li><a href="index.html" class="daddy main-node">JavaFX</a></li>
+   <li><a href="diseo_de_interfaces.html" class="daddy">Diseño de interfaces</a>
+   <ul class="other-section">
+      <li><a href="controles.html" class="daddy">Controles</a>
+      <ul class="other-section">
+         <li><a href="etiquetas.html" class="no-ch">Etiquetas</a></li>
+         <li><a href="hiperenlaces.html" class="no-ch">Hiperenlaces</a></li>
+         <li><a href="campos_de_texto.html" class="no-ch">Campos de texto</a></li>
+         <li><a href="campos_de_contrasea.html" class="no-ch">Campos de contraseña</a></li>
+         <li><a href="botones.html" class="no-ch">Botones</a></li>
+         <li><a href="botones_de_activacin.html" class="no-ch">Botones de activación</a></li>
+         <li><a href="radio_botones.html" class="no-ch">Radio botones</a></li>
+         <li><a href="casillas_de_verificacin.html" class="no-ch">Casillas de verificación</a></li>
+         <li><a href="cajas_de_eleccin.html" class="no-ch">Cajas de elección</a></li>
+         <li><a href="cajas_combinadas.html" class="no-ch">Cajas combinadas</a></li>
+         <li><a href="separador.html" class="no-ch">Separador</a></li>
+         <li><a href="barras_de_desplazamiento_y_paneles_de_desplazamiento.html" class="no-ch">Barras de desplazamiento y paneles de desplazamiento</a></li>
+         <li><a href="deslizador.html" class="no-ch">Deslizador</a></li>
+         <li><a href="barras_e_indicadores_de_progreso.html" class="no-ch">Barras e indicadores de progreso</a></li>
+         <li><a href="vista_de_lista.html" class="no-ch">Vista de lista</a></li>
+         <li><a href="vista_de_tabla.html" class="no-ch">Vista de tabla</a></li>
+         <li><a href="vista_de_rbol.html" class="no-ch">Vista de árbol</a></li>
+         <li><a href="vista_de_tabla_en_rbol.html" class="no-ch">Vista de tabla en árbol</a></li>
+         <li><a href="editor_html.html" class="no-ch">Editor HTML</a></li>
+         <li><a href="informacin_contextual.html" class="no-ch">Información contextual</a></li>
+         <li><a href="mens.html" class="no-ch">Menús</a></li>
+         <li><a href="paneles_con_ttulo_y_acordeones.html" class="no-ch">Paneles con título y acordeones</a></li>
+         <li><a href="paginacin.html" class="no-ch">Paginación</a></li>
+         <li><a href="selector_de_color.html" class="no-ch">Selector de color</a></li>
+         <li><a href="selector_de_fecha.html" class="no-ch">Selector de fecha</a></li>
+         <li><a href="selector_de_ficheros.html" class="no-ch">Selector de ficheros</a></li>
+      </ul>
+      </li>
+      <li><a href="paneles_de_diseo.html" class="no-ch">Paneles de diseño</a></li>
+      <li><a href="personalizacin_de_interfaces.html" class="no-ch">Personalización de interfaces</a></li>
+   </ul>
+   </li>
+   <li id="active"><a href="interaccionando_con_el_usuario.html" class="active daddy">Interaccionando con el usuario</a>
+   <ul>
+      <li><a href="contador_de_pulsaciones.html" class="no-ch">Contador de pulsaciones</a></li>
+      <li><a href="qu_botn_hemos_pulsado.html" class="no-ch">¿Qué botón hemos pulsado?</a></li>
+      <li><a href="campo_de_texto_con_una_longitud_mxima.html" class="no-ch">Campo de texto con una longitud máxima</a></li>
+      <li><a href="campo_de_texto_numrico.html" class="no-ch">Campo de texto numérico</a></li>
+      <li><a href="qu_radio_botn_hemos_seleccionado.html" class="no-ch">¿Qué radio botón hemos seleccionado?</a></li>
+      <li><a href="qu_opcin_hemos_escojido_de_una_caja_de_eleccin.html" class="no-ch">¿Qué opción hemos escojido de una caja de elección?</a></li>
+      <li><a href="elige_las_imgenes_a_mostrar.html" class="no-ch">Elige las imágenes a mostrar</a></li>
+      <li><a href="posicin_del_ratn.html" class="no-ch">Posición del ratón</a></li>
+      <li><a href="cmo_cambia_el_valor_de_un_deslizador.html" class="no-ch">¿Cómo cambia el valor de un deslizador?</a></li>
+      <li><a href="interaccionando_con_una_lista.html" class="no-ch">Interaccionando con una lista</a></li>
+      <li><a href="mostrando_dilogos.html" class="no-ch">Mostrando diálogos</a></li>
+      <li><a href="trabajando_con_tablas.html" class="no-ch">Trabajando con tablas</a></li>
+   </ul>
+   </li>
+   <li><a href="fxml.html" class="daddy">FXML</a>
+   <ul class="other-section">
+      <li><a href="scenebuilder.html" class="no-ch">SceneBuilder</a></li>
+   </ul>
+   </li>
+   <li><a href="cdigo_de_los_ejemplos.html" class="no-ch">Código de los ejemplos</a></li>
+</ul>
+</div>
+<div id='topPagination'>
+<div class="pagination noprt">
+<a href="personalizacin_de_interfaces.html" class="prev"><span><span>&laquo; </span>Anterior</span></a> <span class="sep">| </span><a href="contador_de_pulsaciones.html" class="next"><span>Siguiente<span> &raquo;</span></span></a>
+</div>
+</div>
+<div id="main-wrapper">
+<div id="main"><a name="main"></a>
+<div id="nodeDecoration"><h1 id="nodeTitle">Interaccionando con el usuario</h1></div>
+<div class="iDevice_wrapper FreeTextfpdIdevice" id="id33">
+<div class="iDevice emphasis0">
+<div id="ta33_154" class="block iDevice_content">
+<p>Hasta ahora hemos creado aplicaciones que nos muestran una interfaz de usuario gráfica utilizando JavaFX pero que no tiene ninguna funcionalidad. En este apartado nos vamos a dedicar a ver cómo podemos reaccionar ante las interacciones del usuario con dicha interfaz.</p>
+<p>Cuando el usuario pulsa un botón, marca un radio botón, elige una opción de caja de elección, mueve un deslizador o una barra de desplazamiento, selecciona una fila en una tabla o un árbol, mueve el ratón en el espacio de la aplicación, presiona una tecla en un campo de texto, etc. se genera un evento el cuál nuestra aplicación puede escuchar, para que cuando se produzca pueda reaccionar al mismo de forma adecuada.</p>
+<p>Por tanto, un evento no es más que la ocurrencia de algo que sucede y que es de interés para nuestra aplicación. Los eventos generados son objetos que heredan de la clase <strong>javafx.event.Event</strong>. Más adelante veremos los diferentes tipos de eventos que nos proporciona JavaFX. Un evento posee propiedades tales como su tipo, el origen del mismo y el destino. Dependiendo del tipo de evento, éste puede poseer propiedades adiciones como, por ejemplo, un evento de ratón nos indicará qué botón se ha pulsado, cuántas veces, la posición del puntero, etc.</p>
+<p>Los tipos de eventos más típicos son (aunque hay más que no me detendré ni siquiera a nombrar, para ello puedes buscar en la documentación de Oracle):</p>
+<ul>
+<li><strong>ActionEvent</strong>: se produce al pulsar un botón, un elemento de menú es seleccionado, una opción de una caja de elección es seleccionada, etc. Es el evento más común para los controles simples.</li>
+<li><strong>KeyEvent</strong>: se produce al pulsar una tecla del teclado.</li>
+<li><strong>MouseEvent</strong>: se produce al mover el ratón o pulsar una de sus teclas.</li>
+<li><strong>WindowEvent</strong>: se produce cuando interaccionamos con la ventana; la minimizamos, la maximizamos, la queremos cerrar, etc.</li>
+</ul>
+<p>Para poder reaccionar a un evento deberemos crear un método denominado <strong>manejador de evento</strong> que será al que se llamará cuando dicho evento se produzca. A este método se le suele pasar el evento que se ha producido. Para que cuando se produzca el evento se llame a dicho método deberemos indicárselo a la aplicación y a eso es a lo que se llama <strong>registrar el manejador</strong>. Al registrar el manejador para un evento dado, estamos indicando que queremos esperar a que se produzcan eventos de ese tipo y que cuando se produzcan nos avise llamando a dicho método manejador (o realizando una acción dada).</p>
+<p>Para registrar un manejador cada nodo tiene métodos del tipo <strong>setOnTipoEvento</strong> que nos permite indicarle a qué método debe llamar cuando se produzca ese tipo de evento sobre dicho nodo. Dicho método acepta como parámetro un objeto cuya clase implementa la interfaz <strong>EventHandler</strong>. Esta interfaz es una interfaz funcional (que sólo obliga a implementar un único método) que nos obliga a implementar el método <strong>handle</strong> para la misma. Por lo que podríamos crear una clase como ya sabemos hacerlo que implemente dicha interfaz, implementar el método handle, crear un objeto de dicha clase y pasárselo al método como parámetro. Pero todo esto sería demasiado engorroso para registrar cada uno de los manejadores que queremos utilizar en nuestra aplicación.</p>
+<div class="highlighted-code language-java">
+<div>
+<pre><code>package javafx.manejadores;
+
+import javafx.application.Application;
+import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
+import javafx.geometry.Pos;
+import javafx.scene.Scene;
+import javafx.scene.control.Button;
+import javafx.scene.layout.HBox;
+import javafx.stage.Stage;
+
+public class ManejadorClase extends Application {
+	
+	private class MiManejador implements EventHandler&lt;ActionEvent&gt; {
+
+		@Override
+		public void handle(ActionEvent event) {
+			System.out.println("Botón pulsado!!!");
+		}
+		
+	}
+
+	@Override
+	public void start(Stage escenarioPrincipal) {
+		try {
+			HBox raiz = new HBox();
+			raiz.setAlignment(Pos.CENTER);
+			
+			Button btEjemplo = new Button("Púlsame!!!!");
+			btEjemplo.setOnAction(new MiManejador());
+			
+			raiz.getChildren().add(btEjemplo);
+			
+			Scene escena = new Scene(raiz, 350, 100);
+			escenarioPrincipal.setTitle("Manejador Clase");
+			escenarioPrincipal.setScene(escena);
+			escenarioPrincipal.show();
+		} catch(Exception e) {
+			e.printStackTrace();
+		}
+	}
+
+	public static void main(String[] args) {
+		launch(args);
+	}
+}</code></pre>
+</div>
+</div>
+<p>Una forma algo menos engorrosa sería utilizando una clase anónima para registrar el manejador.</p>
+<div class="highlighted-code language-java">
+<div>
+<pre><code>package javafx.manejadores;
+
+import javafx.application.Application;
+import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
+import javafx.geometry.Pos;
+import javafx.scene.Scene;
+import javafx.scene.control.Button;
+import javafx.scene.layout.HBox;
+import javafx.stage.Stage;
+
+public class ManejadorClaseAnonima extends Application {
+
+	@Override
+	public void start(Stage escenarioPrincipal) {
+		try {
+			HBox raiz = new HBox();
+			raiz.setAlignment(Pos.CENTER);
+			
+			Button btEjemplo = new Button("Púlsame!!!!");
+			btEjemplo.setOnAction(new EventHandler&lt;ActionEvent&gt;() {
+
+				@Override
+				public void handle(ActionEvent event) {
+					System.out.println("Botón pulsado!!!");					
+				}
+
+			});
+			
+			raiz.getChildren().add(btEjemplo);
+			
+			Scene escena = new Scene(raiz, 350, 100);
+			escenarioPrincipal.setTitle("Manejador Clase Anónima");
+			escenarioPrincipal.setScene(escena);
+			escenarioPrincipal.show();
+		} catch(Exception e) {
+			e.printStackTrace();
+		}
+	}
+
+	public static void main(String[] args) {
+		launch(args);
+	}
+}</code></pre>
+</div>
+</div>
+<p>Pero la forma más cómoda es el uso de expresiones lambda de java 8.</p>
+<ul>
+<li>Definiendo un método al que llamaremos en la propia expresión lambda que se pasa como parámetro del método <strong>setOnTipoEvento</strong> del nodo.<br />
+<div class="highlighted-code language-java">
+<div>
+<pre><code>private void botonPulsado(ActionEvent event) {
+     System.out.println("Botón pulsado");
+}
+...
+...
+btEjemplo.setOnAction(e -&gt; botonPulsado(e));</code></pre>
+</div>
+</div>
+El parámetro del método es opcional definirlo. Si lo definimos podremos acceder al objeto evento dentro del método. Si no lo definimos, como es normal, tampoco se le pasará como parámetro.</li>
+<li>Definiendo las acciones a realizar en la misma expresión lambda que se pasa como parámetro del método <strong>setOnTipoEvento</strong> del nodo.<br />
+<div class="highlighted-code language-java">
+<div>
+<pre><code>btEjemplo.setOnAction(e -&gt; {
+    System.out.println("Botón pulsado");
+});</code></pre>
+</div>
+</div>
+Si sólo se trata de una sola sentencia podríamos ponerla sin las llaves.</li>
+</ul>
+<p>También es posible registrar manejadores de eventos mediante el método <strong>addEventHandler</strong> que acepta como parámetros el tipo de evento y el manejador para dicho evento.</p>
+<h2>Propiedades</h2>
+<p>En JavaFX existen las llamadas propiedades. Simplemente son clases envoltorio que permiten encapsular los diferentes atributos de un objeto y así nos pueden informar de los cambios que se producen en las mismas, enlazar diferentes propiedades de diferentes nodos para que los cambios en una de ellas automáticamente se vea reflejado en las otras, etc.</p>
+<p>Las propiedades son clases abstractas que tienen nombres muy parecidos a los tipos que envuelven: <strong>StringProperty</strong>, <strong>IntegerProperty</strong>, <strong>DoubleProperty</strong>, <strong>ObjectProperty&lt;T&gt;</strong>, etc. para las de lectura-escritura y: <strong>ReadOnlyStringProperty</strong>, <strong>ReadOnlyIntegerProperty</strong>, etc para las de sólo lectura. Luego existen dos implementaciones para cada una de ellas: para las de de lectura-escritura <strong>SimpleXXXProperty</strong> y para las de sólo lectura <strong>ReadOnlyXXXWrapper</strong>. Además, dependiendo del caso, existen los método <strong>get</strong> y <strong>getValue</strong> (el primero obtiene el tipo primitivo y el segundo el objeto -para una propiedad del tipo <strong>SimpleIntegerProperty</strong>, <strong>get()</strong> devolvería un <strong>int</strong> y <strong>getValue()</strong> un <strong>Integer</strong>-) y <strong>set</strong> y <strong>setValue</strong> (el primero establece su valor mediante el tipo primitivo y el seguno mediante el objeto).</p>
+<p>Veamos cómo implementar una clase para un <strong>Personaje</strong> utilizando propiedades de JavaFX.</p>
+<div class="highlighted-code language-java">
+<div>
+<pre><code>package javafx.eventos.clases;
+
+import javafx.beans.property.BooleanProperty;
+import javafx.beans.property.IntegerProperty;
+import javafx.beans.property.ObjectProperty;
+import javafx.beans.property.SimpleBooleanProperty;
+import javafx.beans.property.SimpleIntegerProperty;
+import javafx.beans.property.SimpleObjectProperty;
+import javafx.beans.property.SimpleStringProperty;
+import javafx.beans.property.StringProperty;
+
+public class PersonajePropiedades {
+	public enum Estrategia {
+		RISA,
+		MALHUMOR,
+		ATAQUE
+	}
+	
+	private final StringProperty nombre = new SimpleStringProperty();
+	private final IntegerProperty poder = new SimpleIntegerProperty();
+	private final BooleanProperty superpoder = new SimpleBooleanProperty();
+	private final ObjectProperty&lt;Estrategia&gt; estrategia = new SimpleObjectProperty&lt;&gt;();
+	
+	public PersonajePropiedades(String nombre, int poder, boolean superpoder, Estrategia estrategia) {
+		this.nombre.set(nombre);
+		this.poder.set(poder);
+		this.superpoder.set(superpoder);
+		this.estrategia.set(estrategia);
+	}
+
+	public final String getNombre() {
+		return nombre.get();
+	}
+	
+	public final void setNombre(String nombre) {
+		this.nombre.set(nombre);
+	}
+	
+	public final StringProperty nombreProperty() {
+		return nombre;
+	}
+	
+	public final int getPoder() {
+		return poder.get();
+	}
+	
+	public final void setPoder(int poder) {
+		this.poder.set(poder);
+	}
+	
+	public final IntegerProperty poderProperty() {
+		return poder;
+	}
+	
+	public final boolean isSuperpoder() {
+		return superpoder.get();
+	}
+	
+	public final void setSuperpoder(boolean superpoder) {
+		this.superpoder.set(superpoder);
+	}
+	
+	public final BooleanProperty superpoderProperty() {
+		return superpoder;
+	}
+	
+	public final Estrategia getEstrategia() {
+		return estrategia.get();
+	}
+	
+	public final void setEstrategia(Estrategia estrategia) {
+		this.estrategia.set(estrategia);
+	}
+	
+	public final ObjectProperty&lt;Estrategia&gt; estrategiaProperty() {
+		return estrategia;
+	}
+	
+	public String toString() {
+		return String.format("Nombre: %s, Poder: %d, Superpoder: %b, Estrategia: %s",
+				nombre.get(), poder.get(), superpoder.get(), estrategia.get());
+	}
+}</code></pre>
+</div>
+</div>
+<p>Como ya hemos comentado, la ventaja de las propiedades es que podemos ser notificados cuando cambian sus valores. Por lo que otra posibilidad para interactuar correctamente con nuestra interfaz es escuchar los cambios que se producen en las propiedades de los modelos que muchos controles tienen asociados. Eso lo podemos hacer añadiendo un <strong>ChangeListener</strong> a la propiedad asociada al control. Un <strong>ChangeListener</strong> no es más que una interfaz que implementan dichas propiedades y que acepta como parámetros el valor de la propiedad, el valor antiguo antes del cambio y el valor nuevo que acabamos de cambiar.</p>
+<p>Todo esto lo iremos viendo en los ejemplos que ahora os dejo y que os explico con detalle en los siguientes apartados.</p>
+<p>Pues pasemos a ver algunos ejemplos, ahora sí totalmente funcionales, que nos permiten controlar las interacciones del usuario con nuestra aplicación y en la que iremos añadiendo algunos conceptos nuevos.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div id='bottomPagination'>
+<div class="pagination noprt">
+<a href="personalizacin_de_interfaces.html" class="prev"><span><span>&laquo; </span>Anterior</span></a> <span class="sep">| </span><a href="contador_de_pulsaciones.html" class="next"><span>Siguiente<span> &raquo;</span></span></a>
+</div>
+</div>
+<div id="siteFooter"><p style="text-align: center; font-size: large;">CC by-nc - <strong>José Ramón Jiménez Reyes </strong>- IES Al-Ándalus</p></div></div>
+<script type="text/javascript" src="_fpd_js.js"></script></body></html>
