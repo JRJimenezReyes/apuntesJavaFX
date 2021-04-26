@@ -78,6 +78,7 @@
    <li><a href="fxml.html" class="daddy">FXML</a>
    <ul class="other-section">
       <li><a href="scenebuilder.html" class="no-ch">SceneBuilder</a></li>
+      <li><a href="comunicacin_entre_ventanas.html" class="no-ch">Comunicación entre ventanas</a></li>
    </ul>
    </li>
    <li><a href="cdigo_de_los_ejemplos.html" class="no-ch">Código de los ejemplos</a></li>
@@ -95,12 +96,12 @@
 <div class="iDevice emphasis0">
 <div id="ta8_154" class="block iDevice_content">
 <p>La caja de elección es un control que permite elegir un valor de una lista desplegable. El usuario interacciona con ellas eligiendo una opción de la lista y nuestra aplicación podrá actuar en consecuencia.</p>
-<p>Las cajas de elección pertenecen a la clase <strong>javafx.scene.control.ChoiceBox</strong>.</p>
-<p>Una caja de elección lleva un modelo asociado que consiste en una lista que será de una clase que implemente la interfaz <strong>javafx.collections.ObservableList</strong>, y que representa las diferentes elecciones que nos muestra la caja de elección. El paquete <strong>javafx.collections</strong> contiene una copia de todas las clases pertenecientes al paquete <strong>java.util</strong>, con las mismas funcionalidades pero optimizadas para evitar el número de notificaciones al hacer una modificación y cuyos cambios pueden ser observados (patrón observable). Además este paquete contiene una clase de utilidad con métodos estáticos para devolvernos las diferentes implementaciones, llamada <strong>FXCollections</strong>. Para asignar el modelo a la caja de elección utilizaremos el método <strong>setItems</strong> de la misma.</p>
+<p>Las cajas de elección pertenecen a la clase <code><strong>javafx.scene.control.ChoiceBox</strong></code>.</p>
+<p>Una caja de elección lleva un modelo asociado que consiste en una lista que será de una clase que implemente la interfaz <code><strong>javafx.collections.ObservableList</strong></code>, y que representa las diferentes elecciones que nos muestra la caja de elección. El paquete <code><strong>javafx.collections</strong></code> contiene una copia de todas las clases pertenecientes al paquete <code><strong>java.util</strong></code>, con las mismas funcionalidades pero optimizadas para evitar el número de notificaciones al hacer una modificación y cuyos cambios pueden ser observados (patrón observable). Además este paquete contiene una clase de utilidad con métodos estáticos para devolvernos las diferentes implementaciones, llamada <code><strong>FXCollections</strong></code>. Para asignar el modelo a la caja de elección utilizaremos el método <code><strong>setItems</strong></code> de la misma.</p>
 <p>La imagen muestra una caja de elección con tres posibles elecciones.</p>
 <p><img src="Captura_de_pantalla_de_2018-04-09_18-02-10.png" style="display: block; margin-left: auto; margin-right: auto;" width="372" height="258" /></p>
 <p>El código utilizado para crear esta interfaz es el siguiente:</p>
-<div class="highlighted-code language-java">
+<div class="highlighted-code code-style-2 language-java">
 <div>
 <pre><code>package javafx.controles;
 

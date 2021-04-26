@@ -78,6 +78,7 @@
    <li><a href="fxml.html" class="daddy">FXML</a>
    <ul class="other-section">
       <li><a href="scenebuilder.html" class="no-ch">SceneBuilder</a></li>
+      <li><a href="comunicacin_entre_ventanas.html" class="no-ch">Comunicación entre ventanas</a></li>
    </ul>
    </li>
    <li><a href="cdigo_de_los_ejemplos.html" class="no-ch">Código de los ejemplos</a></li>
@@ -95,11 +96,11 @@
 <div class="iDevice emphasis0">
 <div id="ta40_154" class="block iDevice_content">
 <p>En este ejemplo os he querido mostrar la utilización de un evento de ratón. La interfaz muestra un panel de otro color y una etiqueta. Cuando el ratón entra en el panel, en la etiqueta se muestra la posición X y la posición Y del ratón dentro de dicho panel.</p>
-<p>Para ello hace uso de los métodos <strong>setOnMouseMoved</strong> y <strong>setOnMouseExited</strong> para registrar los eventos del ratón al entrar al panel y que así pueda mostrar su posición en la etiqueta y los eventos del ratón al salir del panel para así poder limpiar la última posición. Para consultar la posición X e Y del ratón se hace uso del método <strong>getX</strong> y <strong>getY</strong> del tipo de evento <strong>MouseEvent</strong>.</p>
+<p>Para ello hace uso de los métodos <code><strong>setOnMouseMoved</strong></code> y <code><strong>setOnMouseExited</strong></code> para registrar los eventos del ratón al entrar al panel y que así pueda mostrar su posición en la etiqueta y los eventos del ratón al salir del panel para así poder limpiar la última posición. Para consultar la posición X e Y del ratón se hace uso del método <code><strong>getX</strong></code> y <code><strong>getY</strong></code> del tipo de evento <code><strong>MouseEvent</strong></code>.</p>
 <p>La interfaz de dicha aplicación es la que muestro a continuación.</p>
 <p><img src="Captura_de_pantalla_de_2018-04-15_19-04-01.png" style="display: block; margin-left: auto; margin-right: auto;" width="350" height="286" /></p>
 <p>El código asociado es el que sigue.</p>
-<div class="highlighted-code language-java">
+<div class="highlighted-code code-style-2 language-java">
 <div>
 <pre><code>package javafx.eventos;
 

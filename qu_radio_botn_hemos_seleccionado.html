@@ -78,6 +78,7 @@
    <li><a href="fxml.html" class="daddy">FXML</a>
    <ul class="other-section">
       <li><a href="scenebuilder.html" class="no-ch">SceneBuilder</a></li>
+      <li><a href="comunicacin_entre_ventanas.html" class="no-ch">Comunicación entre ventanas</a></li>
    </ul>
    </li>
    <li><a href="cdigo_de_los_ejemplos.html" class="no-ch">Código de los ejemplos</a></li>
@@ -95,17 +96,18 @@
 <div class="iDevice emphasis0">
 <div id="ta37_154" class="block iDevice_content">
 <p>El siguiente ejemplo muestra una aplicación que permite elegir la imagen que queremos mostrar en la misma y el cuál podemos elegir seleccionando uno de los tres radio botones que contiene.</p>
-<p>Como los radio botones están agrupados para hacer que la selección sea excluyente, lo que hacemos es escuchar los cambios que se producen en la propiedad asociada al <strong>ToggleGroup</strong> que agrupa los radio botones. El manejador le pregunta al grupo cuál es la selección actual mediante el método <strong>getSelectedToggle</strong> del mismo y así muestra una imagen u otra.</p>
+<p>Como los radio botones están agrupados para hacer que la selección sea excluyente, lo que hacemos es escuchar los cambios que se producen en la propiedad asociada al <code><strong>ToggleGroup</strong></code> que agrupa los radio botones. El manejador le pregunta al grupo cuál es la selección actual mediante el método <code><strong>getSelectedToggle</strong></code> del mismo y así muestra una imagen u otra.</p>
 <p>La interfaz de dicha aplicación es la que se muestra a continuación.</p>
 <p><img src="Captura_de_pantalla_de_2018-04-15_18-44-21.png" style="display: block; margin-left: auto; margin-right: auto;" width="470" height="206" /></p>
 <p>El código utilizado para crear dicha aplicación es el que se muestra a continuación.</p>
-<div class="highlighted-code language-java">
+<div class="highlighted-code code-style-2 language-java">
 <div>
 <pre><code>package javafx.eventos;
 
 import javafx.application.Application;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
+import javafx.recursos.LocalizadorRecursos;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.control.RadioButton;
@@ -125,9 +127,9 @@ public class SeleccionRadioBoton extends Application {
 	private ImageView ivIcono;
 	private ToggleGroup grupo;
 	
-	private Image imgCerveza = new Image(getClass().getResourceAsStream("../imagenes/iconoCerveza.png"), 100, 100, true, true);
-	private Image imgCaca = new Image(getClass().getResourceAsStream("../imagenes/iconoCaca.png"), 100, 100, true, true);
-	private Image imgApagar = new Image(getClass().getResourceAsStream("../imagenes/iconoApagar.png"), 100, 100, true, true);
+	private Image imgCerveza = new Image(LocalizadorRecursos.class.getResourceAsStream("imagenes/iconoCerveza.png"), 100, 100, true, true);
+	private Image imgCaca = new Image(LocalizadorRecursos.class.getResourceAsStream("imagenes/iconoCaca.png"), 100, 100, true, true);
+	private Image imgApagar = new Image(LocalizadorRecursos.class.getResourceAsStream("imagenes/iconoApagar.png"), 100, 100, true, true);
 	
 	private void muestraIcono() {
 		RadioButton seleccionado = (RadioButton)grupo.getSelectedToggle();
@@ -183,7 +185,8 @@ public class SeleccionRadioBoton extends Application {
 	public static void main(String[] args) {
 		launch(args);
 	}
-}</code></pre>
+}
+</code></pre>
 </div>
 </div>
 </div>

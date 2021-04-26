@@ -78,6 +78,7 @@
    <li><a href="fxml.html" class="daddy">FXML</a>
    <ul class="other-section">
       <li><a href="scenebuilder.html" class="no-ch">SceneBuilder</a></li>
+      <li><a href="comunicacin_entre_ventanas.html" class="no-ch">Comunicación entre ventanas</a></li>
    </ul>
    </li>
    <li><a href="cdigo_de_los_ejemplos.html" class="no-ch">Código de los ejemplos</a></li>
@@ -95,11 +96,11 @@
 <div class="iDevice emphasis0">
 <div id="ta15_154" class="block iDevice_content">
 <p>Este control es una mezcla de la vista de tabla y la vista en árbol, por lo que su potencia es bastante grande. Permite mostrar una jerarquía de elementos de una forma tabular. Permite seleccionar uno o varios elementos y también editarlos.</p>
-<p>La vista de tabla en árbol pertenece a la clase <strong>javafx.scene.control.TreeTableView</strong>. Las columnas de la tabla pertenecen a la clase <strong>javafx.scene.control.TreeTableColumn</strong> y los elementos de la jerarquía a la clase <strong>javafx.scene.control.TreeItem</strong>.</p>
+<p>La vista de tabla en árbol pertenece a la clase <code><strong>javafx.scene.control.TreeTableView</strong></code>. Las columnas de la tabla pertenecen a la clase <code><strong>javafx.scene.control.TreeTableColumn</strong></code> y los elementos de la jerarquía a la clase <code><strong>javafx.scene.control.TreeItem</strong></code>.</p>
 <p>El modelo asociado es una mezcla de la vista de tabla y la vista de árbol.</p>
 <p><img src="Captura_de_pantalla_de_2018-04-11_21-57-22.png" style="display: block; margin-left: auto; margin-right: auto;" width="320" height="386" /></p>
 <p>El código utilizado para crear esta interfaz es el siguiente:</p>
-<div class="highlighted-code language-java">
+<div class="highlighted-code code-style-2 language-java">
 <div>
 <pre><code>package javafx.controles;
 
@@ -173,7 +174,7 @@ public class VistaTablaArbol extends Application {
 			}
 			TreeItem&lt;Personaje&gt; tiFemeninos = new TreeItem&lt;&gt;(new Personaje("Femeninos", ""));
 			for (Personaje femenino : FEMENINOS) {
-				tiFemeninos.getChildren().add(new TreeItem&lt;Personaje&gt;(femenino));
+				tiFemeninos.getChildren().add(new TreeItem&lt;&gt;(femenino));
 			}
 	        tiRaiz.getChildren().add(tiMasculinos);
 	        tiRaiz.getChildren().add(tiFemeninos);
@@ -213,7 +214,8 @@ public class VistaTablaArbol extends Application {
 	public static void main(String[] args) {
 		launch(args);
 	}
-}</code></pre>
+}
+</code></pre>
 </div>
 </div>
 </div>

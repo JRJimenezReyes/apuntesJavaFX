@@ -78,6 +78,7 @@
    <li><a href="fxml.html" class="daddy">FXML</a>
    <ul class="other-section">
       <li><a href="scenebuilder.html" class="no-ch">SceneBuilder</a></li>
+      <li><a href="comunicacin_entre_ventanas.html" class="no-ch">Comunicación entre ventanas</a></li>
    </ul>
    </li>
    <li><a href="cdigo_de_los_ejemplos.html" class="no-ch">Código de los ejemplos</a></li>
@@ -96,15 +97,16 @@
 <div id="ta24_154" class="block iDevice_content">
 <p>En JavaFX disponemos del control Barra de menú que es el control que nos permite crear una barra de menú para nuestra ventana. Este tipo de control nos permite añadir diferentes elementos a dicha barra que a su vez pueden ser: elementos de menú, separadores, elementos de menú de verificación y elementos de menú de radio. Creo que a estas alturas sobran las explicaciones sobre dichos elementos.</p>
 <p>JavaFX también nos permite crear elementos de menú contextuales que son similares a los anteriores, pero que se asignan a un control individual y no se añaden a una barra de menú.</p>
-<p>Los controles relativos a las barras de menús pertenecen, principalmente, a las clases: <strong>javafx.scene.control.MenuBar</strong>, <strong>javafx.scene.control.Menu</strong>, <strong>javafx.scene.control.MenuItem</strong>, <strong>javafx.scene.control.SeparatorMenuItem</strong>, <strong>javafx.scene.control.CheckMenuItem</strong> y <strong>javafx.scene.control.RadioMenuItem</strong>. Un menú contextual pertenece a la clase<strong> javafx.scene.control.ContextMenu</strong>.</p>
+<p>Los controles relativos a las barras de menús pertenecen, principalmente, a las clases: <code><strong>javafx.scene.control.MenuBar</strong></code>, <code><strong>javafx.scene.control.Menu</strong></code>, <code><strong>javafx.scene.control.MenuItem</strong></code>, <code><strong>javafx.scene.control.SeparatorMenuItem</strong></code>, <code><strong>javafx.scene.control.CheckMenuItem</strong></code> y <code><strong>javafx.scene.control.RadioMenuItem</strong></code>. Un menú contextual pertenece a la clase<code><strong> javafx.scene.control.ContextMenu</strong></code>.</p>
 <p>Veamos cómo podemos crear una barra de menú simple para nuestra escena.</p>
 <p><img src="Captura_de_pantalla_de_2018-04-11_00-56-28.png" style="display: block; margin-left: auto; margin-right: auto;" width="222" height="288" /></p>
 <p>El código utilizado para crear esta interfaz es el siguiente:</p>
-<div class="highlighted-code language-java">
+<div class="highlighted-code code-style-2 language-java">
 <div>
 <pre><code>package javafx.controles;
 	
 import javafx.application.Application;
+import javafx.recursos.LocalizadorRecursos;
 import javafx.scene.Scene;
 import javafx.scene.control.Menu;
 import javafx.scene.control.MenuBar;
@@ -134,7 +136,7 @@ public class Menus extends Application {
 			mAyuda.getItems().add(miAcercaDe);
 			mbPrincipal.getMenus().addAll(mFichero, mAyuda);
 						
-			Image logo = new Image(getClass().getResourceAsStream("../imagenes/logo-ies2.png"), 200, 200, true, true);
+			Image logo = new Image(LocalizadorRecursos.class.getResourceAsStream("imagenes/logo-ies2.png"), 200, 200, true, true);
 			ImageView ivLogo = new ImageView(logo);
 
 			raiz.getChildren().addAll(mbPrincipal, ivLogo);

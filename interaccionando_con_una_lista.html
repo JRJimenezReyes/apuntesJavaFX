@@ -78,6 +78,7 @@
    <li><a href="fxml.html" class="daddy">FXML</a>
    <ul class="other-section">
       <li><a href="scenebuilder.html" class="no-ch">SceneBuilder</a></li>
+      <li><a href="comunicacin_entre_ventanas.html" class="no-ch">Comunicación entre ventanas</a></li>
    </ul>
    </li>
    <li><a href="cdigo_de_los_ejemplos.html" class="no-ch">Código de los ejemplos</a></li>
@@ -95,15 +96,15 @@
 <div class="iDevice emphasis0">
 <div id="ta42_154" class="block iDevice_content">
 <p>En los ejemplos de este apartado vamos a interaccionar con una lista y personalizarla.</p>
-<p>El primer ejemplo muestra una lista de colores que al seleccionar uno de ellos lo muestra como color de fondo de un panel que se muestra a su derecha. Para ello se escucha para los cambios en el elemento seleccionado de la lista. Por lo que nos quedamos con el modelo de selección asociado a la lista mediante el método <strong>getSelectionModel().selectedItemProperty()</strong> al cuál le añadimos un <strong>ChangeListener</strong> mediante el método <strong>addListener</strong> que ya conocemos y así poder mostrar el color de fondo del panel con el valor del elemento seleccionado en la lista. La interfaz para este ejemplo es la siguiente.</p>
+<p>El primer ejemplo muestra una lista de colores que al seleccionar uno de ellos lo muestra como color de fondo de un panel que se muestra a su derecha. Para ello se escucha para los cambios en el elemento seleccionado de la lista. Por lo que nos quedamos con el modelo de selección asociado a la lista mediante el método <code><strong>getSelectionModel().selectedItemProperty()</strong></code> al cuál le añadimos un <code><strong>ChangeListener</strong></code> mediante el método <code><strong>addListener</strong></code> que ya conocemos y así poder mostrar el color de fondo del panel con el valor del elemento seleccionado en la lista. La interfaz para este ejemplo es la siguiente.</p>
 <p><img src="Captura_de_pantalla_de_2018-04-15_19-18-04.png" style="display: block; margin-left: auto; margin-right: auto;" width="430" height="236" /></p>
-<p>El segundo ejemplo hace lo mismo, pero personalizamos la forma en la que los elementos de la lista son visualizados, mostrando un rectángulo redondeado del color asociado a cada uno de los elementos. Para ello he creado una clase interna que hereda de <strong>ListCell</strong> y que sobreescribe el método <strong>updateItem</strong> que es el encargado de visualizar cada uno de los elementos para que en vez de mostrar el texto pinte un rectángulo redondeado de dicho color. Luego simplemente debemos decirle a la lista que utilice un objeto de dicha clase para visualizar los elementos mediante el método <strong>setCellFactory</strong> de la misma. La interfaz es la que muestro a continuación.</p>
+<p>El segundo ejemplo hace lo mismo, pero personalizamos la forma en la que los elementos de la lista son visualizados, mostrando un rectángulo redondeado del color asociado a cada uno de los elementos. Para ello he creado una clase interna que hereda de <code><strong>ListCell</strong></code> y que sobreescribe el método <code><strong>updateItem</strong></code> que es el encargado de visualizar cada uno de los elementos para que en vez de mostrar el texto pinte un rectángulo redondeado de dicho color. Luego simplemente debemos decirle a la lista que utilice un objeto de dicha clase para visualizar los elementos mediante el método <code><strong>setCellFactory</strong></code> de la misma. La interfaz es la que muestro a continuación.</p>
 <p><img src="Captura_de_pantalla_de_2018-04-15_19-18-17.png" style="display: block; margin-left: auto; margin-right: auto;" width="430" height="236" /></p>
-<p>El tercer ejemplo permite además añadir y borrar elementos de la lista. Para añadir elementos, éstos se seleccionan de un selector de color y al pulsar el botón <strong>Añadir</strong> se añaden al modelo de la lista mediante el método <strong>add</strong>. Para eliminar el elemento seleccionado se utiliza el método <strong>remove</strong> del modelo asociado a la lista. La interfaz es la siguiente.</p>
+<p>El tercer ejemplo permite además añadir y borrar elementos de la lista. Para añadir elementos, éstos se seleccionan de un selector de color y al pulsar el botón <strong>Añadir</strong> se añaden al modelo de la lista mediante el método <code><strong>add</strong></code>. Para eliminar el elemento seleccionado se utiliza el método <code><strong>remove</strong></code> del modelo asociado a la lista. La interfaz es la siguiente.</p>
 <p><img src="Captura_de_pantalla_de_2018-04-15_19-18-29.png" style="display: block; margin-left: auto; margin-right: auto;" width="650" height="386" /></p>
 <p>Ahora os dejo el código de cada uno de los ejemplos.</p>
 <h2 style="text-align: center;">ListaColores1.java</h2>
-<div class="highlighted-code language-java">
+<div class="highlighted-code code-style-2 language-java">
 <div>
 <pre><code>package javafx.eventos;
 
@@ -176,7 +177,7 @@ public class ListaColores1 extends Application {
 </div>
 </div>
 <h2 style="text-align: center;">ListaColores2.java</h2>
-<div class="highlighted-code language-java">
+<div class="highlighted-code code-style-2 language-java">
 <div>
 <pre><code>package javafx.eventos;
 
@@ -269,7 +270,7 @@ public class ListaColores2 extends Application {
 </div>
 </div>
 <h2 style="text-align: center;">ListaColores3.java</h2>
-<div class="highlighted-code language-java">
+<div class="highlighted-code code-style-2 language-java">
 <div>
 <pre><code>package javafx.eventos;
 

@@ -78,6 +78,7 @@
    <li><a href="fxml.html" class="daddy">FXML</a>
    <ul class="other-section">
       <li><a href="scenebuilder.html" class="no-ch">SceneBuilder</a></li>
+      <li><a href="comunicacin_entre_ventanas.html" class="no-ch">Comunicación entre ventanas</a></li>
    </ul>
    </li>
    <li><a href="cdigo_de_los_ejemplos.html" class="no-ch">Código de los ejemplos</a></li>
@@ -95,23 +96,24 @@
 <div class="iDevice emphasis0">
 <div id="ta3_154" class="block iDevice_content">
 <p>Las etiquetas son controles que nos permiten mostrar texto y/o imágenes en una interfaz. Generalmente, el usuario no interactúa con las etiquetas.</p>
-<p>Las etiquetas pertenecen a la clase <strong>javafx.scene.control.Label</strong>.</p>
-<p>Para establecer el texto de una etiqueta utilizamos el método <strong>setText</strong> o bien le pasamos dicho texto al constructor. Si queremos establecer una imagen para una etiqueta lo haremos mediante el método <strong>setGraphic</strong> pasándole un objeto de la clase <strong>ImageView</strong> o bien se lo pasamos junto al texto al constructor.</p>
-<div class="highlighted-code language-java">
+<p>Las etiquetas pertenecen a la clase <code><strong>javafx.scene.control.Label</strong></code>.</p>
+<p>Para establecer el texto de una etiqueta utilizamos el método <code><strong>setText</strong></code> o bien le pasamos dicho texto al constructor. Si queremos establecer una imagen para una etiqueta lo haremos mediante el método <code><strong>setGraphic</strong></code> pasándole un objeto de la clase <code><strong>ImageView</strong></code> o bien se lo pasamos junto al texto al constructor.</p>
+<div class="highlighted-code code-style-2 language-java">
 <div>
-<pre><code>Image imagen = new Image(getClass().getResourceAsStream("../imagenes/iconoCaca.png"), 100, 100, true, true);
-etiquetaImagen.setGraphic(new ImageView(imagen));</code></pre>
+<pre><code>Image imagen = new Image(LocalizadorRecursos.class.getResourceAsStream("imagenes/iconoCaca.png"), 100, 100, true, true);
+lbImagen.setGraphic(new ImageView(imagen));</code></pre>
 </div>
 </div>
 <p>La siguiente imagen muestra tres etiquetas: una que contiene una imagen, otra que ha sido rotada, cambiado el tipo de letra y su tamaño y una última que no cabe y que se ha cortado (wrap) en varias líneas.</p>
 <p><img src="Captura_de_pantalla_de_2018-04-11_18-06-18.png" style="display: block; margin-left: auto; margin-right: auto;" width="500" height="236" /></p>
 <p>El código utilizado para crear esta interfaz es el siguiente:</p>
-<div class="highlighted-code language-java">
+<div class="highlighted-code code-style-2 language-java">
 <div>
 <pre><code>package javafx.controles;
 
 import javafx.application.Application;
 import javafx.geometry.Insets;
+import javafx.recursos.LocalizadorRecursos;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
@@ -133,7 +135,7 @@ public class Etiquetas extends Application {
 			Label lbRotada = new Label();
 			Label lbCortada = new Label();
 			
-			Image imagen = new Image(getClass().getResourceAsStream("../imagenes/iconoCaca.png"), 100, 100, true, true);
+			Image imagen = new Image(LocalizadorRecursos.class.getResourceAsStream("imagenes/iconoCaca.png"), 100, 100, true, true);
 			lbImagen.setGraphic(new ImageView(imagen));
 			
 			lbRotada.setText("Etiqueta");
@@ -162,7 +164,6 @@ public class Etiquetas extends Application {
 </code></pre>
 </div>
 </div>
-<p></p>
 </div>
 </div>
 </div>

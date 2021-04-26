@@ -78,6 +78,7 @@
    <li><a href="fxml.html" class="daddy">FXML</a>
    <ul class="other-section">
       <li><a href="scenebuilder.html" class="no-ch">SceneBuilder</a></li>
+      <li><a href="comunicacin_entre_ventanas.html" class="no-ch">Comunicación entre ventanas</a></li>
    </ul>
    </li>
    <li><a href="cdigo_de_los_ejemplos.html" class="no-ch">Código de los ejemplos</a></li>
@@ -95,17 +96,18 @@
 <div class="iDevice emphasis0">
 <div id="ta23_154" class="block iDevice_content">
 <p>Un panel con título, como su propio nombre indica, no es más que panel que lleva un título arriba. Éste se puede expandir o contraer y suele contener otro tipo de control en su interior. En la práctica se suele utilizar embebido en un acordeón que no es más que una agrupación de paneles con título de los cuales se muestran sólo uno a la vez.</p>
-<p>Un panel con título pertenece a la clase <strong>javafx.scene.control.TitledPane</strong>. Un acordeón pertenece a la clase<strong> javafx.scene.control.Accordion</strong>.</p>
-<p>Para añadir paneles con título a un acordeón debemos acceder a sus paneles por medio del método <strong>getPanes</strong> del acordeón e ir  añadiéndolos mediante el método <strong>add</strong> o <strong>addAll</strong>.</p>
+<p>Un panel con título pertenece a la clase <code><strong>javafx.scene.control.TitledPane</strong></code>. Un acordeón pertenece a la clase<code><strong> javafx.scene.control.Accordion</strong></code>.</p>
+<p>Para añadir paneles con título a un acordeón debemos acceder a sus paneles por medio del método <code><strong>getPanes</strong></code> del acordeón e ir  añadiéndolos mediante el método <code><strong>add</strong></code> o <code><strong>addAll</strong></code>.</p>
 <p>La siguiente imagen muestra un acordeón con dos paneles con título.</p>
 <p><img src="Captura_de_pantalla_de_2018-04-11_00-16-11.png" style="display: block; margin-left: auto; margin-right: auto;" width="250" height="336" /></p>
 <p>El código utilizado para crear esta interfaz es el siguiente:</p>
-<div class="highlighted-code language-java">
+<div class="highlighted-code code-style-2 language-java">
 <div>
 <pre><code>package javafx.controles;
 	
 import javafx.application.Application;
 import javafx.geometry.Insets;
+import javafx.recursos.LocalizadorRecursos;
 import javafx.scene.Scene;
 import javafx.scene.control.Accordion;
 import javafx.scene.control.TitledPane;
@@ -121,8 +123,8 @@ public class Acordeon extends Application {
 			Accordion raiz = new Accordion();
 			raiz.setPadding(new Insets(20, 20, 20, 20));
 						
-			Image logo1 = new Image(getClass().getResourceAsStream("../imagenes/logo-ies.png"), 200, 200, true, true);
-			Image logo2 = new Image(getClass().getResourceAsStream("../imagenes/logo-ies2.png"), 200, 200, true, true);
+			Image logo1 = new Image(LocalizadorRecursos.class.getResourceAsStream("imagenes/logo-ies.png"), 200, 200, true, true);
+			Image logo2 = new Image(LocalizadorRecursos.class.getResourceAsStream("imagenes/logo-ies2.png"), 200, 200, true, true);
 
 			TitledPane tlpClaro = new TitledPane("Logo claro", new ImageView(logo1));
 			TitledPane tlpOscuro = new TitledPane("Logo oscuro", new ImageView(logo2));

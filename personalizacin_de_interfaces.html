@@ -78,6 +78,7 @@
    <li><a href="fxml.html" class="daddy">FXML</a>
    <ul class="other-section">
       <li><a href="scenebuilder.html" class="no-ch">SceneBuilder</a></li>
+      <li><a href="comunicacin_entre_ventanas.html" class="no-ch">Comunicación entre ventanas</a></li>
    </ul>
    </li>
    <li><a href="cdigo_de_los_ejemplos.html" class="no-ch">Código de los ejemplos</a></li>
@@ -96,11 +97,11 @@
 <div id="ta30_154" class="block iDevice_content">
 <p>Como habéis podido observar, las interfaces creadas con JavaFX tienen un aspecto común que, por cierto, es bastante amigable.</p>
 <p>Pero JavaFX nos permite tener un control total a la hora de personalizar nuestras interfaces mediante el uso hojas de estilo CSS. No pretendo mostrar en qué consiste CSS o todas las posibilidades que ofrece JavaFX para ello, pero sí que lo conozcáis y su uso básico. Si os veis en la necesidad de utilizarlo os animo a consultar la documentación que ofrece Oracle o cualquier otra fuente ya que hay mucha documentación al respecto en la web.</p>
-<p>Si queremos modificar el aspecto de nodos particulares podemos usar el método <strong>setStyle</strong> pasándole una cadena con las diferentes propiedades CSS que queremos modificar.</p>
+<p>Si queremos modificar el aspecto de nodos particulares podemos usar el método <code><strong>setStyle</strong></code> pasándole una cadena con las diferentes propiedades CSS que queremos modificar.</p>
 <p>Por ejemplo, en la siguiente interfaz he cambiado el aspecto de los botones y del fondo, con el siguiente resultado.</p>
 <p><img src="Captura_de_pantalla_de_2018-04-12_12-59-24.png" style="display: block; margin-left: auto; margin-right: auto;" width="500" height="536" /></p>
 <p>El código utilizado para ello es el siguiente:</p>
-<div class="highlighted-code language-java">
+<div class="highlighted-code code-style-2 language-java">
 <div>
 <pre><code>package javafx.personalizacion;
 
@@ -120,7 +121,7 @@ public class EstilosNodos extends Application {
 		try {
 			BorderPane raiz = new BorderPane();
 			raiz.setStyle("-fx-base: #ffe4c4;"
-					+ "-fx-background-image: url('/javafx/imagenes/logo-ies3.png');"
+					+ "-fx-background-image: url('/javafx/recursos/imagenes/logo-ies3.png');"
 					+ "-fx-background-position: center;"
 					+ "-fx-background-repeat: no-repeat;");
 			
@@ -151,13 +152,13 @@ public class EstilosNodos extends Application {
 </div>
 </div>
 <p>También podemos utilizar una hoja de estilos externa de la siguiente forma:</p>
-<div class="highlighted-code language-java">
+<div class="highlighted-code code-style-2 language-java">
 <div>
-<pre><code>escena.getStylesheets().add(getClass().getResource("aplicacion.css").toExternalForm());</code></pre>
+<pre><code>escena.getStylesheets().add(LocalizadorRecursos.class.getResource("estilos/aplicacion.css").toExternalForm());</code></pre>
 </div>
 </div>
 <p>En dicha hoja de estilos podremos utilizar los selectores de clase o de identificador habituales en CSS. Una vez definidos los estilos para cada uno de los selectores podremos aplicar una clase o un identificador a un nodo dado.</p>
-<div class="highlighted-code language-java">
+<div class="highlighted-code code-style-2 language-java">
 <div>
 <pre><code>//Aplicar clase
 btAceptar.getStyleClass().add("btAceptar");
@@ -166,9 +167,9 @@ btAceptar.getStyleClass().add("btAceptar");
 btAceptar.setId("btAceptar");</code></pre>
 </div>
 </div>
-<p>Si asignamos una clase, en la hoja de estilos utilizaremos el selector <strong>.btAcepta</strong>r. Si asignamos un identificador, en la hoja de estilos utilizaremos el selector <strong>#btAceptar</strong>.</p>
-<p>Podemos conseguir el mismo resultado que la imagen anterior utilizando la siguiente hoja de estilos, nombrada como <strong>aplicacion.css</strong>:</p>
-<div class="highlighted-code language-css">
+<p>Si asignamos una clase, en la hoja de estilos utilizaremos el selector <code><strong>.btAcepta</strong></code>r. Si asignamos un identificador, en la hoja de estilos utilizaremos el selector <code><strong>#btAceptar</strong></code>.</p>
+<p>Podemos conseguir el mismo resultado que la imagen anterior utilizando la siguiente hoja de estilos, nombrada como <code><strong>aplicacion.css</strong></code>:</p>
+<div class="highlighted-code code-style-2 language-css">
 <div>
 <pre><code>.raiz {
 	-fx-base: #ffe4c4;
@@ -189,13 +190,14 @@ btAceptar.setId("btAceptar");</code></pre>
 </div>
 </div>
 <p>Y el siguiente código:</p>
-<div class="highlighted-code language-java">
+<div class="highlighted-code code-style-2 language-java">
 <div>
 <pre><code>package javafx.personalizacion;
 
 import javafx.application.Application;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
+import javafx.recursos.LocalizadorRecursos;
 import javafx.stage.Stage;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
@@ -222,7 +224,7 @@ public class EstilosHojaExterna extends Application {
 			raiz.setBottom(hbBotones);			
 			
 			Scene escena = new Scene(raiz, 500, 500);
-			escena.getStylesheets().add(getClass().getResource("aplicacion.css").toExternalForm());
+			escena.getStylesheets().add(LocalizadorRecursos.class.getResource("estilos/aplicacion.css").toExternalForm());
 			escenarioPrincipal.setTitle("Hoja Estilos Externa");
 			escenarioPrincipal.setScene(escena);
 			escenarioPrincipal.show();

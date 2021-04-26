@@ -78,6 +78,7 @@
    <li><a href="fxml.html" class="daddy">FXML</a>
    <ul class="other-section">
       <li><a href="scenebuilder.html" class="no-ch">SceneBuilder</a></li>
+      <li><a href="comunicacin_entre_ventanas.html" class="no-ch">Comunicación entre ventanas</a></li>
    </ul>
    </li>
    <li><a href="cdigo_de_los_ejemplos.html" class="no-ch">Código de los ejemplos</a></li>
@@ -95,13 +96,13 @@
 <div class="iDevice emphasis0">
 <div id="ta12_154" class="block iDevice_content">
 <p>La vista de lista es un control que permite seleccionar uno o varios elementos de una lista dada de elementos. Este es un control que además añade una barra de desplazamiento si el contenido de la lista es mayor que la vista que lo contiene. Además es un control muy versátil ya que nos permite controlar cómo se visualiza cada uno de los elementos de la lista.</p>
-<p>Una vista de lista pertenece a la clase <strong>javafx.scene.control.ListView</strong>.</p>
-<p>Podemos indicar si permite selección múltiple o no mediante el método <strong>setSelectionMode</strong>, pasándole los valores <strong>SelectionMode.SINGLE</strong> o <strong>SelectionMode.MULTIPLE</strong>. Para hacerlo debemos acceder primero al modelo de selección de la lista mediante el método <strong>getSelectionModel</strong>.</p>
-<p>Necesita tener asociado un modelo de una clase que implemente la interfaz <strong>javafx.collections.ObservableList</strong> que indicará las diferentes opciones a mostrar y que podremos asociar a la vista de lista mediante su método <strong>setItems</strong>. También podremos pasarle la lista en el constructor.</p>
+<p>Una vista de lista pertenece a la clase <code><strong>javafx.scene.control.ListView</strong></code>.</p>
+<p>Podemos indicar si permite selección múltiple o no mediante el método <code><strong>setSelectionMode</strong></code>, pasándole los valores <code><strong>SelectionMode.SINGLE</strong></code> o <code><strong>SelectionMode.MULTIPLE</strong></code>. Para hacerlo debemos acceder primero al modelo de selección de la lista mediante el método <code><strong>getSelectionModel</strong></code>.</p>
+<p>Necesita tener asociado un modelo de una clase que implemente la interfaz <code><strong>javafx.collections.ObservableList</strong></code> que indicará las diferentes opciones a mostrar y que podremos asociar a la vista de lista mediante su método <code><strong>setItems</strong></code>. También podremos pasarle la lista en el constructor.</p>
 <p>La siguiente imagen muestra una lista que permite la selección múltiple y que muestra una barra de desplazamiento ya que no se pueden visualizar todos sus elementos.</p>
 <p><img src="Captura_de_pantalla_de_2018-04-09_19-20-41.png" style="display: block; margin-left: auto; margin-right: auto;" width="300" height="236" /></p>
 <p>El código utilizado para crear esta interfaz es el siguiente:</p>
-<div class="highlighted-code language-java">
+<div class="highlighted-code code-style-2 language-java">
 <div>
 <pre><code>package javafx.controles;
 

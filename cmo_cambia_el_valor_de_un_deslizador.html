@@ -78,6 +78,7 @@
    <li><a href="fxml.html" class="daddy">FXML</a>
    <ul class="other-section">
       <li><a href="scenebuilder.html" class="no-ch">SceneBuilder</a></li>
+      <li><a href="comunicacin_entre_ventanas.html" class="no-ch">Comunicación entre ventanas</a></li>
    </ul>
    </li>
    <li><a href="cdigo_de_los_ejemplos.html" class="no-ch">Código de los ejemplos</a></li>
@@ -95,11 +96,11 @@
 <div class="iDevice emphasis0">
 <div id="ta41_154" class="block iDevice_content">
 <p>Este ejemplo muestra cómo podemos escuchar los cambios en el valor de un deslizador y mostrarlos en una etiqueta, en una barra de progreso y en un indicador de progreso.</p>
-<p>Para ello volvemos a añadir un escuchador para los cambios del valor de la propiedad asociada al deslizador mediante el método <strong>addListener</strong> para poder conocer su nuevo valor y así actuar en consecuencia.</p>
+<p>Para ello volvemos a añadir un escuchador para los cambios del valor de la propiedad asociada al deslizador mediante el método <code><strong>addListener</strong></code> para poder conocer su nuevo valor y así actuar en consecuencia.</p>
 <p>La interfaz para este ejemplo es la que muestro a continuación.</p>
 <p><img src="Captura_de_pantalla_de_2019-04-08_19-40-15.png" style="display: block; margin-left: auto; margin-right: auto;" width="450" height="186" /></p>
 <p>El código asociado a la misma es el que sigue.</p>
-<div class="highlighted-code language-java">
+<div class="highlighted-code code-style-2 language-java">
 <div>
 <pre><code>package javafx.eventos;
 
@@ -166,8 +167,8 @@ public class ValorDeslizador1 extends Application {
 }</code></pre>
 </div>
 </div>
-<p>Eso mismo podíamos haberlo hecho utilizando enlaces entre propiedades: <strong>bind</strong>. Aquí os dejo el código utilizando enlaces.</p>
-<div class="highlighted-code language-java line-numbers hightlight-34and36and38">
+<p>Eso mismo podíamos haberlo hecho utilizando enlaces entre propiedades: <code><strong>bind</strong></code>. Aquí os dejo el código utilizando enlaces.</p>
+<div class="highlighted-code code-style-2 language-java line-numbers hightlight-34and36and38">
 <div>
 <pre><code>package javafx.eventos;
 
@@ -208,6 +209,67 @@ public class ValorDeslizador2 extends Application {
 			ProgressIndicator piValor = new ProgressIndicator(0.5);
 			piValor.progressProperty().bind(deslizador.valueProperty().divide(100));
 			hbValores.getChildren().addAll(lbValor, pbValor, piValor);
+			
+			raiz.getChildren().addAll(deslizador, hbValores);
+			
+			Scene escena = new Scene(raiz, 450, 150);
+			escenarioPrincipal.setTitle("Valor deslizador");
+			escenarioPrincipal.setScene(escena);
+			escenarioPrincipal.show();
+		} catch(Exception e) {
+			e.printStackTrace();
+		}
+	}
+
+	public static void main(String[] args) {
+		launch(args);
+	}
+}</code></pre>
+</div>
+</div>
+<p>Y en este último ejemplo hemos enlazado bidireccionalmente el valor del deslizador con el contenido de un campo de texto mediante el método <strong><code>bindBidirectional</code></strong>.</p>
+<div class="highlighted-code code-style-2 language-java">
+<div>
+<pre><code>package javafx.eventos;
+
+import javafx.application.Application;
+import javafx.geometry.Insets;
+import javafx.geometry.Pos;
+import javafx.scene.Scene;
+import javafx.scene.control.ProgressBar;
+import javafx.scene.control.ProgressIndicator;
+import javafx.scene.control.Slider;
+import javafx.scene.control.TextField;
+import javafx.scene.layout.HBox;
+import javafx.scene.layout.VBox;
+import javafx.stage.Stage;
+import javafx.util.converter.NumberStringConverter;
+
+public class ValorDeslizador3 extends Application {
+
+	@Override
+	public void start(Stage escenarioPrincipal) {
+		try {
+			VBox raiz = new VBox(30);
+			raiz.setPadding(new Insets(20));
+			raiz.setAlignment(Pos.CENTER);
+			
+			Slider deslizador = new Slider(0, 100, 50);
+			deslizador.setShowTickLabels(true);
+			deslizador.setShowTickMarks(true);
+			deslizador.setMajorTickUnit(50);
+			deslizador.setMinorTickCount(4);
+			
+			HBox hbValores = new HBox(10);
+			hbValores.setAlignment(Pos.CENTER);
+			TextField tfValor = new TextField();
+			tfValor.setPrefColumnCount(3);
+			tfValor.textProperty().bindBidirectional(deslizador.valueProperty(), new NumberStringConverter());
+			ProgressBar pbValor = new ProgressBar(0.5);
+			pbValor.progressProperty().bind(deslizador.valueProperty().divide(100));
+			ProgressIndicator piValor = new ProgressIndicator(0.5);
+			piValor.progressProperty().bind(deslizador.valueProperty().divide(100));
+			hbValores.getChildren().addAll(tfValor, pbValor, piValor);
 			
 			raiz.getChildren().addAll(deslizador, hbValores);
 			

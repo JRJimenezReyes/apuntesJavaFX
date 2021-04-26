@@ -78,6 +78,7 @@
    <li><a href="fxml.html" class="daddy">FXML</a>
    <ul class="other-section">
       <li><a href="scenebuilder.html" class="no-ch">SceneBuilder</a></li>
+      <li><a href="comunicacin_entre_ventanas.html" class="no-ch">Comunicación entre ventanas</a></li>
    </ul>
    </li>
    <li><a href="cdigo_de_los_ejemplos.html" class="no-ch">Código de los ejemplos</a></li>
@@ -96,11 +97,11 @@
 <div id="ta6_154" class="block iDevice_content">
 <p>Los botones de activación son una especialización de un botón y tienen dos estados: activado o no activado. Se pueden combinar en grupos de forma que sólo uno de ellos puede estar activado simultáneamente o se pueden utilizar sin agrupar. El usuario interacciona con ellos pulsando sobre los mismos y van cambiando de estado.</p>
 <p>Al igual que los botones pueden contener texto, imágenes o ambos y se hace de la misma forma que para los botones.</p>
-<p>Los botones de activación pertenecen a la clase <strong>javafx.scene.control.ToggleButton</strong>. Si quisiéramos agruparlos, crearíamos un objeto de la clase <strong>javafx.scene.control.ToggleGroup</strong> y para especificar que un botón de activación pertenece a un grupo dado utilizamos el método <strong>setToggleGroup</strong> del botón de activación, pasándole el grupo al que pertenecen.</p>
+<p>Los botones de activación pertenecen a la clase <code><strong>javafx.scene.control.ToggleButton</strong></code>. Si quisiéramos agruparlos, crearíamos un objeto de la clase <code><strong>javafx.scene.control.ToggleGroup</strong></code> y para especificar que un botón de activación pertenece a un grupo dado utilizamos el método <code><strong>setToggleGroup</strong></code> del botón de activación, pasándole el grupo al que pertenecen.</p>
 <p>En la siguiente imagen se muestran tres botones de activación que no están agrupados.</p>
 <p><img src="Captura_de_pantalla_de_2018-04-09_17-38-50.png" style="display: block; margin-left: auto; margin-right: auto;" width="420" height="186" /></p>
 <p>El código utilizado para crear esta interfaz es el siguiente:</p>
-<div class="highlighted-code language-java">
+<div class="highlighted-code code-style-2 language-java">
 <div>
 <pre><code>package javafx.controles;
 

@@ -78,6 +78,7 @@
    <li><a href="fxml.html" class="daddy">FXML</a>
    <ul class="other-section">
       <li><a href="scenebuilder.html" class="no-ch">SceneBuilder</a></li>
+      <li><a href="comunicacin_entre_ventanas.html" class="no-ch">Comunicación entre ventanas</a></li>
    </ul>
    </li>
    <li><a href="cdigo_de_los_ejemplos.html" class="no-ch">Código de los ejemplos</a></li>
@@ -94,16 +95,17 @@
 <div class="iDevice_wrapper FreeTextfpdIdevice" id="id11">
 <div class="iDevice emphasis0">
 <div id="ta11_154" class="block iDevice_content">
-<p>Las barras de desplazamiento son controles utilizados para desplazar contenido que no cabe en su contenedor. Generalmente se utilizan con otro control llamado <strong>ScrollPane</strong>, que es un panel que puede mostrar las barras de desplazamiento (bien sean horizontales, verticales o ambas) cuando el contenido del panel no cabe en el mismo.</p>
-<p>Las barras de desplazamiento pertenecen a la clase <strong>javafx.scene.control.ScrollBar</strong>. Los paneles de desplazamiento pertenecen a la clase <strong>javafx.scene.control.ScrollPane</strong>.</p>
-<p>La siguiente imagen muestra un panel de deplazamiento con barra de desplazamiento vertical y horizontal.</p>
+<p>Las barras de desplazamiento son controles utilizados para desplazar contenido que no cabe en su contenedor. Generalmente se utilizan con otro control llamado <code><strong>ScrollPane</strong></code>, que es un panel que puede mostrar las barras de desplazamiento (bien sean horizontales, verticales o ambas) cuando el contenido del panel no cabe en el mismo.</p>
+<p>Las barras de desplazamiento pertenecen a la clase <code><strong>javafx.scene.control.ScrollBar</strong></code>. Los paneles de desplazamiento pertenecen a la clase <code><strong>javafx.scene.control.ScrollPane</strong></code>.</p>
+<p>La siguiente imagen muestra un panel de desplazamiento con barra de desplazamiento vertical y horizontal.</p>
 <p><img src="Captura_de_pantalla_de_2018-04-09_19-06-13.png" style="display: block; margin-left: auto; margin-right: auto;" width="500" height="536" /></p>
 <p>El código utilizado para crear esta interfaz es el siguiente:</p>
-<div class="highlighted-code language-java">
+<div class="highlighted-code code-style-2 language-java">
 <div>
 <pre><code>package javafx.controles;
 
 import javafx.application.Application;
+import javafx.recursos.LocalizadorRecursos;
 import javafx.scene.Scene;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.image.Image;
@@ -116,7 +118,7 @@ public class BarrasDesplazamiento extends Application {
 	public void start(Stage escenarioPrincipal) {
 		try {
 			ScrollPane sp = new ScrollPane();
-			Image imagen = new Image(getClass().getResourceAsStream("../imagenes/logo-ies.png"));
+			Image imagen = new Image(LocalizadorRecursos.class.getResourceAsStream("imagenes/logo-ies.png"));
 			sp.setContent(new ImageView(imagen));
 						
 			Scene escena = new Scene(sp, 500, 500);

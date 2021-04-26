@@ -78,6 +78,7 @@
    <li><a href="fxml.html" class="daddy">FXML</a>
    <ul class="other-section">
       <li><a href="scenebuilder.html" class="no-ch">SceneBuilder</a></li>
+      <li><a href="comunicacin_entre_ventanas.html" class="no-ch">Comunicación entre ventanas</a></li>
    </ul>
    </li>
    <li><a href="cdigo_de_los_ejemplos.html" class="no-ch">Código de los ejemplos</a></li>
@@ -95,11 +96,11 @@
 <div class="iDevice emphasis0">
 <div id="ta38_154" class="block iDevice_content">
 <p>El siguiente ejemplo muestra una aplicación muy parecida a la anterior pero que, en vez de utilizar radio botones para seleccionar la imagen a mostrar, utiliza una caja de elección.</p>
-<p>En esta aplicación registramos un <strong>ChangeListener</strong> para el modelo asociado a la caja de elección (aunque también lo podría haber hecho registrando un manejador para el <strong>ActionEvent</strong> de la caja de elección).</p>
+<p>En esta aplicación registramos un <code><strong>ChangeListener</strong></code> para el modelo asociado a la caja de elección (aunque también lo podría haber hecho registrando un manejador para el <code><strong>ActionEvent</strong></code> de la caja de elección).</p>
 <p>La interfaz de la aplicación es la que se muestra a continuación.</p>
 <p><img src="Captura_de_pantalla_de_2018-04-15_18-50-09.png" style="display: block; margin-left: auto; margin-right: auto;" width="430" height="256" /></p>
 <p>El código asociado a la misma es el siguiente.</p>
-<div class="highlighted-code language-java">
+<div class="highlighted-code code-style-2 language-java">
 <div>
 <pre><code>package javafx.eventos;
 
@@ -107,6 +108,7 @@ import javafx.application.Application;
 import javafx.collections.FXCollections;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
+import javafx.recursos.LocalizadorRecursos;
 import javafx.scene.Scene;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.Label;
@@ -122,9 +124,9 @@ public class SeleccionCajaEleccion extends Application {
 	private ChoiceBox&lt;String&gt; cbOpciones;
 	private ImageView ivIcono;
 	
-	private Image imgCerveza = new Image(getClass().getResourceAsStream("../imagenes/iconoCerveza.png"), 100, 100, true, true);
-	private Image imgCaca = new Image(getClass().getResourceAsStream("../imagenes/iconoCaca.png"), 100, 100, true, true);
-	private Image imgApagar = new Image(getClass().getResourceAsStream("../imagenes/iconoApagar.png"), 100, 100, true, true);
+	private Image imgCerveza = new Image(LocalizadorRecursos.class.getResourceAsStream("imagenes/iconoCerveza.png"), 100, 100, true, true);
+	private Image imgCaca = new Image(LocalizadorRecursos.class.getResourceAsStream("imagenes/iconoCaca.png"), 100, 100, true, true);
+	private Image imgApagar = new Image(LocalizadorRecursos.class.getResourceAsStream("imagenes/iconoApagar.png"), 100, 100, true, true);
 	
 	private void muestraIcono() {
 		String seleccion = cbOpciones.valueProperty().getValue();
@@ -171,7 +173,8 @@ public class SeleccionCajaEleccion extends Application {
 	public static void main(String[] args) {
 		launch(args);
 	}
-}</code></pre>
+}
+</code></pre>
 </div>
 </div>
 <p></p>

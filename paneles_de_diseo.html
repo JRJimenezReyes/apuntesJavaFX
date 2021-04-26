@@ -80,6 +80,7 @@
    <li><a href="fxml.html" class="daddy">FXML</a>
    <ul class="other-section">
       <li><a href="scenebuilder.html" class="no-ch">SceneBuilder</a></li>
+      <li><a href="comunicacin_entre_ventanas.html" class="no-ch">Comunicación entre ventanas</a></li>
    </ul>
    </li>
    <li><a href="cdigo_de_los_ejemplos.html" class="no-ch">Código de los ejemplos</a></li>
@@ -99,13 +100,13 @@
 <p>En nuestra IU nosotros podríamos ir añadiendo controles colocándolos en una posición dada y dándoles un tamaño, pero esa no es la forma adecuada de hacerlo. La forma adecuada de posicionar los diferentes controles es utilizando paneles de diseño (Layout Pane).</p>
 <p>Los paneles de diseño utilizan diferentes políticas para posicionar, dimensionar, espaciar, etc los controles que se añaden al mismo. Además a un panel de diseño no sólo podremos añadir controles si no que también podremos añadir otros paneles de diseño u otros elementos de JavaFX, por lo que a partir de ahora hablaremos de nodos.</p>
 <p>Veamos los ejemplos más comunes de paneles de diseño:</p>
-<div class="exe-fx exe-tabs">
+<div class="exe-fx exe-accordion">
 <h2>Pane</h2>
 <p>Este panel nos ofrece total libertad para colocar los diferentes nodos. Los nodos se posicionan por las coordenadas en las que los añadimos. Este panel de diseño <strong>no se debe utilizar</strong> para realizar diseños robustos.</p>
-<p>Este panel de diseño pertenece a la clase <strong>javafx.scene.layout.Pane</strong>.</p>
+<p>Este panel de diseño pertenece a la clase <code><strong>javafx.scene.layout.Pane</strong></code>.</p>
 <p><img src="Captura_de_pantalla_de_2018-04-12_17-14-42.png" alt="Pane" title="Pane" style="display: block; margin-left: auto; margin-right: auto;" width="300" height="236" /></p>
 <p>El código utilizado para crear esta interfaz es el siguiente:</p>
-<div class="highlighted-code language-java">
+<div class="highlighted-code code-style-2 language-java">
 <div>
 <pre><code>package javafx.panelesdiseno;
 
@@ -149,18 +150,18 @@ public class Panel extends Application {
 </div>
 <h2>HBox</h2>
 <p>Este panel posiciona los diferentes nodos que se le van añadiendo en una fila uno detrás de otro.</p>
-<p>Este panel de diseño pertenece a la clase <strong>javafx.scene.layout.HBox</strong>.</p>
+<p>Este panel de diseño pertenece a la clase <code><strong>javafx.scene.layout.HBox</strong></code>.</p>
 <p><img src="Captura_de_pantalla_de_2018-04-12_17-22-33.png" alt="HBox" title="HBox" style="display: block; margin-left: auto; margin-right: auto;" width="300" height="86" /></p>
 <p>Como puedes apreciar aparece un botón pegado al otro y pegados a los bordes. Este comportamiento lo podemos modificar cambiando las diferentes propiedades del mismo. Las más representativas son las siguientes propiedades:</p>
-<ul>
-<li><strong>padding:</strong> propiedad con la que podemos controlar la distancia entre los límites del panel y los bordes del panel.</li>
-<li><strong>spacing</strong>: propiedad que indica la separación entre los nodos.</li>
+<ul class="lista_verificacion">
+<li><strong><code>padding</code>:</strong> propiedad con la que podemos controlar la distancia entre los límites del panel y los bordes del panel.</li>
+<li><code><strong>spacing</strong></code>: propiedad que indica la separación entre los nodos.</li>
 </ul>
 <p>En la siguiente imagen puedes observar la diferencia al modificar los valores de ambas propiedades.</p>
 <p><img src="Captura_de_pantalla_de_2018-04-12_17-25-22.png" alt="HBox" title="HBox" style="display: block; margin-left: auto; margin-right: auto;" width="300" height="86" /></p>
-<p>También podemos cambiar la alineación de los nodos tal y como se muestra en la siguiente imagen, por medio de la propiedad <strong>alignment</strong>.</p>
+<p>También podemos cambiar la alineación de los nodos tal y como se muestra en la siguiente imagen, por medio de la propiedad <code><strong>alignment</strong></code>.</p>
 <p><img src="Captura_de_pantalla_de_2018-04-12_17-23-15.png" alt="HBox" title="HBox" style="display: block; margin-left: auto; margin-right: auto;" width="300" height="86" /></p>
-<div class="highlighted-code language-java">
+<div class="highlighted-code code-style-2 language-java">
 <div>
 <pre><code>package javafx.panelesdiseno;
 
@@ -204,11 +205,11 @@ public class PanelHorizontal extends Application {
 </div>
 <h2>VBox</h2>
 <p>Este panel es similar al anterior con la salvedad que coloca los nodos en una columna uno debajo de otro. Al igual que con el anterior, podemos modificar las propiedades para cambiar su comportamiento.</p>
-<p>Este panel de diseño pertenece a la clase <strong>javafx.scene.layout.VBox</strong>.</p>
+<p>Este panel de diseño pertenece a la clase <code><strong>javafx.scene.layout.VBox</strong></code>.</p>
 <div style="display: block; margin-left: auto; margin-right: auto; text-align: center;"><img src="Captura_de_pantalla_de_2018-04-12_17-29-41.png" alt="VBox" title="VBox" width="250" height="186" /><img src="Captura_de_pantalla_de_2018-04-12_17-30-10.png" alt="VBox" title="VBox" width="250" height="186" /><img src="Captura_de_pantalla_de_2018-04-12_17-30-23.png" alt="VBox" title="VBox" width="250" height="186" /></div>
 <div style="display: block; margin-left: auto; margin-right: auto; text-align: left;">El código utilizado para crear la interfaz de la última imagen es el siguiente:</div>
 <div style="display: block; margin-left: auto; margin-right: auto; text-align: left;">
-<div class="highlighted-code language-java">
+<div class="highlighted-code code-style-2 language-java">
 <div>
 <pre><code>package javafx.panelesdiseno;
 
@@ -253,10 +254,10 @@ public class PanelVertical extends Application {
 </div>
 <h2>BorderPane</h2>
 <p>Este panel nos ofrece cinco regiones en las que añadir nodos: arriba, abajo, izquierda, derecha y centro. Este tipo de panel es muy utilizado para crear interfaces clásicas que arriba suelen tener una barra de menú, abajo una barra de estado, un panel de navegación a la izquierda, etc.</p>
-<p>Este panel de diseño pertenece a la clase <strong>javafx.scene.layout.BorderPane</strong>.</p>
+<p>Este panel de diseño pertenece a la clase <code><strong>javafx.scene.layout.BorderPane</strong></code>.</p>
 <p><img src="Captura_de_pantalla_de_2018-04-12_17-50-35.png" alt="BorderPane" title="BorderPane" style="display: block; margin-left: auto; margin-right: auto;" width="500" height="336" /></p>
 <p>El código utilizado para crear la interfaz de la imagen (aunque parezca algo enrevesado, lo he hecho para distinguir las diferentes zonas) es el siguiente:</p>
-<div class="highlighted-code language-java">
+<div class="highlighted-code code-style-2 language-java">
 <div>
 <pre><code>package javafx.panelesdiseno;
 
@@ -322,10 +323,10 @@ public class PanelBorde extends Application {
 </div>
 <h2><strong>StackPane</strong></h2>
 <p>Este panel coloca los diferentes nodos uno encima del otro.</p>
-<p>Este panel de diseño pertenece a la clase <strong>javafx.scene.layout.StackPane</strong>.</p>
+<p>Este panel de diseño pertenece a la clase <code><strong>javafx.scene.layout.StackPane</strong></code>.</p>
 <p><img src="Captura_de_pantalla_de_2018-04-13_10-56-52.png" alt="StackPane" title="StackPane" style="display: block; margin-left: auto; margin-right: auto;" width="250" height="286" /></p>
 <p>El código utilizado para crear la interfaz de la imagen es el siguiente:</p>
-<div class="highlighted-code language-java">
+<div class="highlighted-code code-style-2 language-java">
 <div>
 <pre><code>package javafx.panelesdiseno;
 
@@ -391,14 +392,14 @@ public class PanelApilado extends Application {
 </div>
 <h2><strong>GridPane</strong></h2>
 <p>Este panel nos ofrece una cuadrícula de filas y columnas y en cada celda podemos colocar un nodo.</p>
-<p>Este panel de diseño pertenece a la clase <strong>javafx.scene.layout.GridPane</strong>.</p>
+<p>Este panel de diseño pertenece a la clase <code><strong>javafx.scene.layout.GridPane</strong></code>.</p>
 <p><img src="Captura_de_pantalla_de_2018-04-06_11-54-13.png" alt="GridPane" title="GridPane" style="display: block; margin-left: auto; margin-right: auto;" width="206" height="117" /></p>
-<p>Mediante las propiedades <strong>Hgap</strong> y <strong>Vgap</strong> podemos definir la distancia horizontal y/o vertical entre las celdas. También podemos modificar, entre otras, la propiedad <strong>padding</strong>.</p>
+<p>Mediante las propiedades <code><strong>Hgap</strong></code> y <code><strong>Vgap</strong></code> podemos definir la distancia horizontal y/o vertical entre las celdas. También podemos modificar, entre otras, la propiedad <code><strong>padding</strong></code>.</p>
 <p style="text-align: center;"><img src="Captura_de_pantalla_de_2018-04-06_12-08-00.png" alt="GridPane" title="GridPane" width="239" height="149" /></p>
 <p>Este panel es muy utilizado para crear formularios con etiquetas y campos de texto alineados.</p>
 <p><img src="Captura_de_pantalla_de_2018-04-12_18-24-06.png" alt="Formulario" title="Formulario" style="display: block; margin-left: auto; margin-right: auto;" width="300" height="196" /></p>
 <p>El código utilizado para crear la interfaz anterior es el siguiente:</p>
-<div class="highlighted-code language-java">
+<div class="highlighted-code code-style-2 language-java">
 <div>
 <pre><code>package javafx.panelesdiseno;
 
@@ -455,10 +456,10 @@ public class PanelCuadricula extends Application {
 </div>
 <h2><strong>FlowPane</strong></h2>
 <p>Este panel dispone los nodos unos detrás de otros. Los nodos pueden flotar horizontalmente o verticalmente. Si la orientación es horizontal, colocará nodos uno detrás de otro y cuando llegue a la anchura del panel, seguirá colocando debajo de estos uno detrás de otro. Si es vertical los colocará uno debajo de otro y cuando llegue a la altura del panel los seguirá colocando a la derecha de los anteriores uno debajo de otro.</p>
-<p>Este panel de diseño pertenece a la clase <strong>javafx.scene.layout.FlowPane</strong>.</p>
+<p>Este panel de diseño pertenece a la clase <code><strong>javafx.scene.layout.FlowPane</strong></code>.</p>
 <p style="text-align: center;"><img src="Captura_de_pantalla_de_2018-04-12_18-57-08.png" alt="FlowPane" title="FlowPane" width="400" height="106" /><img src="Captura_de_pantalla_de_2018-04-12_18-57-22.png" alt="FlowPane" title="FlowPane" style="vertical-align: top;" width="288" height="119" /></p>
 <p style="text-align: left;">El código utilizado para crear la primera interfaz es el que sigue. La segunda es una muestra de la misma interfaz redimensionada.</p>
-<div class="highlighted-code language-java">
+<div class="highlighted-code code-style-2 language-java">
 <div>
 <pre><code>package javafx.panelesdiseno;
 
@@ -503,18 +504,18 @@ public class PanelFlujo extends Application {
 </div>
 </div>
 <h2><strong>TilePane</strong></h2>
-<p>Este panel es muy similar al anterior, aunque nos ofrece una cuadrícula de filas y columnas en las que irá colocando los nodos. Los nodos pueden colocarse horizontal o verticalmente y para colocar los nodos sigue la misma política que el panel anterior. Para definir la cuadrícula se utilizan las porpiedades <strong>prefColumns</strong> y <strong>prefRows</strong>. Aunque el número de filas y columnas puede variar dependiendo de la anchura y altura del panel.</p>
-<p>Este panel de diseño pertenece a la clase <strong>javafx.scene.layout.TilePane</strong>.</p>
+<p>Este panel es muy similar al anterior, aunque nos ofrece una cuadrícula de filas y columnas en las que irá colocando los nodos. Los nodos pueden colocarse horizontal o verticalmente y para colocar los nodos sigue la misma política que el panel anterior. Para definir la cuadrícula se utilizan las porpiedades <code><strong>prefColumns</strong></code> y <code><strong>prefRows</strong></code>. Aunque el número de filas y columnas puede variar dependiendo de la anchura y altura del panel.</p>
+<p>Este panel de diseño pertenece a la clase <code><strong>javafx.scene.layout.TilePane</strong></code>.</p>
 <h2>AnchorPane</h2>
-<p>Este panel permite posicionar los nodos anclados a las caras del mismo por lo que nos ofrece total libertad para colocar los diferentes nodos. Al igual que <strong>Pane</strong>, no <strong>se debe utilizar</strong> para realizar diseños robustos.</p>
-<p>Este panel de diseño pertenece a la clase <strong>javafx.scene.layout.AnchorPane</strong>.</p>
+<p>Este panel permite posicionar los nodos anclados a las caras del mismo por lo que nos ofrece total libertad para colocar los diferentes nodos. Al igual que <code><strong>Pane</strong></code>, no <strong>se debe utilizar</strong> para realizar diseños robustos.</p>
+<p>Este panel de diseño pertenece a la clase <code><strong>javafx.scene.layout.AnchorPane</strong></code>.</p>
 <p><img src="Captura_de_pantalla_de_2018-04-06_13-18-43.png" alt="AnchorPane" title="AnchorPane" style="display: block; margin-left: auto; margin-right: auto;" width="301" height="185" /></p>
 </div>
 <p></p>
-<p>Para crear interfaces complejas lo más adecuado es combinar el uso de varios paneles de diseño para facilitarnos la tarea de diseño. Por ejemplo, para crear el formulario de la siguiente imagen he utilizado como panel principal un <strong>VBox</strong>. Dentro de éste he añadido:</p>
-<ul>
-<li>Un <strong>GridPane</strong> de 3 filas y 2 columnas en el que he ido añadiendo las etiquetas y los campos de texto. </li>
-<li>Un <strong>HBox</strong> en el que he añadido los dos botones alineados a la derecha.</li>
+<p>Para crear interfaces complejas lo más adecuado es combinar el uso de varios paneles de diseño para facilitarnos la tarea de diseño. Por ejemplo, para crear el formulario de la siguiente imagen he utilizado como panel principal un <code><strong>VBox</strong></code>. Dentro de éste he añadido:</p>
+<ul class="lista_verificacion">
+<li>Un <code><strong>GridPane</strong></code> de 3 filas y 2 columnas en el que he ido añadiendo las etiquetas y los campos de texto. </li>
+<li>Un <code><strong>HBox</strong></code> en el que he añadido los dos botones alineados a la derecha.</li>
 </ul>
 <p><img src="Captura_de_pantalla_de_2018-04-06_20-59-29.png" alt="Formulario" title="Formulario" style="display: block; margin-left: auto; margin-right: auto;" width="404" height="250" /></p>
 </div>

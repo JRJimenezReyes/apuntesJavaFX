@@ -78,6 +78,7 @@
    <li><a href="fxml.html" class="daddy">FXML</a>
    <ul class="other-section">
       <li><a href="scenebuilder.html" class="no-ch">SceneBuilder</a></li>
+      <li><a href="comunicacin_entre_ventanas.html" class="no-ch">Comunicación entre ventanas</a></li>
    </ul>
    </li>
    <li><a href="cdigo_de_los_ejemplos.html" class="no-ch">Código de los ejemplos</a></li>
@@ -95,11 +96,11 @@
 <div class="iDevice emphasis0">
 <div id="ta28_154" class="block iDevice_content">
 <p>Este control nos permite navegar por el sistema de ficheros y seleccionar ficheros del mismo. También permite añadir filtros para los ficheros a mostrar. Generalmente este control es lanzado desde cualquier otro control.</p>
-<p>El selector de ficheros pertenece a la clase <strong>javafx.stage.FileChooser</strong>.</p>
+<p>El selector de ficheros pertenece a la clase <code><strong>javafx.stage.FileChooser</strong></code>.</p>
 <p>La siguiente imagen muestra el selector de ficheros en acción.</p>
 <p><img src="Captura_de_pantalla_de_2018-04-11_11-19-04.png" style="display: block; margin-left: auto; margin-right: auto;" width="1024" height="692" /></p>
 <p>El código utilizado para crear esta interfaz es el siguiente:</p>
-<div class="highlighted-code language-java">
+<div class="highlighted-code code-style-2 language-java">
 <div>
 <pre><code>package javafx.controles;
 	
@@ -124,7 +125,7 @@ public class SelectorFicheros extends Application {
 						
 			FileChooser fcAbrir = new FileChooser();
 			fcAbrir.setTitle("Abrir imagen");
-			fcAbrir.setInitialDirectory(new File("/home/pepino/Imágenes"));                 
+			fcAbrir.setInitialDirectory(new File("."));                 
 			fcAbrir.getExtensionFilters().addAll(
                 new FileChooser.ExtensionFilter("Todos los ficheros", "*.*"),
                 new FileChooser.ExtensionFilter("JPG", "*.jpg"),

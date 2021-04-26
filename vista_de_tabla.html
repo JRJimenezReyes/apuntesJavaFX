@@ -78,6 +78,7 @@
    <li><a href="fxml.html" class="daddy">FXML</a>
    <ul class="other-section">
       <li><a href="scenebuilder.html" class="no-ch">SceneBuilder</a></li>
+      <li><a href="comunicacin_entre_ventanas.html" class="no-ch">Comunicación entre ventanas</a></li>
    </ul>
    </li>
    <li><a href="cdigo_de_los_ejemplos.html" class="no-ch">Código de los ejemplos</a></li>
@@ -95,24 +96,23 @@
 <div class="iDevice emphasis0">
 <div id="ta13_154" class="block iDevice_content">
 <p>Este es uno de los controles más potentes ya que nos muestra una tabla formada por filas y columnas y una cabecera para cada una de las columnas. Nos permite visualizar datos complejos y además editarlos. Se podrá definir cómo se edita y se visualiza cada celda. Nos permite seleccionar una fila o varias. También permite ordenar la tabla por columnas.</p>
-<p>Una vista de tabla pertenece a la clase <strong>javafx.scene.control.TableView</strong>. Cada columna pertenece a la clase <strong>javafx.scene.control.TableColumn</strong>.</p>
-<p>Necesita tener asociado un modelo de una clase que implemente la interfaz <strong>javafx.collections.ObservableList</strong> que indicará las diferentes filas que contendrá. El modelo consistirá en una lista que contendrá elementos pertenecientes a una clase dada y mostraremos atributos en las columnas. Para asociar correctamente el modelo deberemos:</p>
-<ul>
-<li>Crear una lista, con elementos de una clase dada, que implemente <strong>ObservableList.</strong></li>
+<p>Una vista de tabla pertenece a la clase <code><strong>javafx.scene.control.TableView</strong></code>. Cada columna pertenece a la clase <code><strong>javafx.scene.control.TableColumn</strong></code>.</p>
+<p>Necesita tener asociado un modelo de una clase que implemente la interfaz <code><strong>javafx.collections.ObservableList</strong></code> que indicará las diferentes filas que contendrá. El modelo consistirá en una lista que contendrá elementos pertenecientes a una clase dada y mostraremos atributos en las columnas. Para asociar correctamente el modelo deberemos:</p>
+<ul class="lista_verificacion">
+<li>Crear una lista, con elementos de una clase dada, que implemente <strong><code>ObservableList</code>.</strong></li>
 <li>Definir cada una de las columnas que queremos mostrar indicando la etiqueta de la cabecera de dicha columna y el tipo que contendrá.</li>
 <li>Añadir las columnas a la vista de tabla.</li>
-<li>Indicar para cada columna cómo podrá obtener los valores del atributo.<strong></strong></li>
+<li>Indicar para cada columna cómo podrá obtener los valores del atributo.</li>
 </ul>
-<p>Oracle recomienda utilizar clases que hagan uso de las propiedades de JavaFX 2.0, aunque eso no es necesario y lo que sí es necesario es que los métodos <strong>get</strong> y <strong>set</strong> (si los hubiera y quisiéramos poder editar celdas) sigan la convención <strong>getNombreAtributo</strong> y <strong>setNombreAtributo</strong> (si el atributo es un valor lógico para consultarlo utilizaremos el método <strong>isNombreAtributo</strong> en vez de get).</p>
+<p>Todo esto lo trataremos con más detalle cuando hablemos de la interacción del usuario con las tablas.</p>
 <p>En la siguiente imagen se muestra una vista de tabla con dos columnas que muestra una lista de personajes que tiene los atributos nombre y apellidos.</p>
 <p><img src="Captura_de_pantalla_de_2018-04-09_19-59-31.png" style="display: block; margin-left: auto; margin-right: auto;" width="300" height="286" /></p>
-<p>El código utilizado para crear esta interfaz es el siguiente. Este código es el que recomienda Oracle utilizando las propiedades.</p>
-<div class="highlighted-code language-java">
+<p>El código utilizado para crear esta interfaz es el siguiente.</p>
+<div class="highlighted-code code-style-2 language-java">
 <div>
 <pre><code>package javafx.controles;
 
 import javafx.application.Application;
-import javafx.beans.property.SimpleStringProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.geometry.Insets;
@@ -126,99 +126,6 @@ import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
 public class VistaTabla extends Application {
-	
-	public static class Personaje {
-		private final SimpleStringProperty nombre;
-		private final SimpleStringProperty apellidos;
-
-		private Personaje(String nombre, String apellidos) {
-			this.nombre = new SimpleStringProperty(nombre);
-			this.apellidos = new SimpleStringProperty(apellidos);
-		}
-
-		public String getNombre() {
-			return nombre.get();
-		}
-
-		public void setNombre(String nombre) {
-			this.nombre.set(nombre);
-		}
-
-		public String getApellidos() {
-			return apellidos.get();
-		}
-
-		public void setApellidos(String apellidos) {
-			this.apellidos.set(apellidos);
-		}
-
-	}
-	
-	private static final ObservableList&lt;Personaje&gt; PERSONAJES = FXCollections.observableArrayList(
-			new Personaje("Pepito", "Grillo"),
-			new Personaje("Bob", "Esponja"),
-			new Personaje("Juan", "Sin Miedo"),
-			new Personaje("Perico", "De Los Palotes"),
-			new Personaje("Juana", "La Loca"));
-
-	@Override
-	public void start(Stage escenarioPrincipal) {
-		try {
-			VBox raiz = new VBox();
-			raiz.setPadding(new Insets(40));
-			raiz.setSpacing(10);
-			
-			Label lbPersonajes = new Label("Personajes:");
-			TableView&lt;Personaje&gt; tvPersonajes = new TableView&lt;&gt;();
-			TableColumn&lt;Personaje, String&gt; columnaNombre = new TableColumn&lt;&gt;("Nombre");
-			TableColumn&lt;Personaje, String&gt; columnaApellidos = new TableColumn&lt;&gt;("Apellidos");
-			tvPersonajes.getColumns().add(columnaNombre);
-			tvPersonajes.getColumns().add(columnaApellidos);
-			tvPersonajes.getSelectionModel().setSelectionMode(SelectionMode.MULTIPLE);
-			columnaNombre.setMinWidth(100);
-			columnaNombre.setCellValueFactory(new PropertyValueFactory&lt;Personaje, String&gt;("nombre"));
-			columnaApellidos.setMinWidth(100);
-			columnaApellidos.setCellValueFactory(new PropertyValueFactory&lt;Personaje, String&gt;("apellidos"));
-
-			tvPersonajes.setItems(PERSONAJES);
-			
-			raiz.getChildren().addAll(lbPersonajes, tvPersonajes);
-			
-			Scene escena = new Scene(raiz, 300, 250);
-			escenarioPrincipal.setTitle("Vista de tabla");
-			escenarioPrincipal.setScene(escena);
-			escenarioPrincipal.show();
-		} catch(Exception e) {
-			e.printStackTrace();
-		}
-	}
-
-	public static void main(String[] args) {
-		launch(args);
-	}
-
-}</code></pre>
-</div>
-</div>
-<p>A continuación muestro el código que produce el mismo resultado pero que <strong>no hace uso de las propiedades</strong> de JavaFX 2.0.</p>
-<div class="highlighted-code language-java">
-<div>
-<pre><code>package javafx.controles;
-
-import javafx.application.Application;
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
-import javafx.geometry.Insets;
-import javafx.scene.Scene;
-import javafx.scene.control.Label;
-import javafx.scene.control.SelectionMode;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
-import javafx.scene.control.cell.PropertyValueFactory;
-import javafx.scene.layout.VBox;
-import javafx.stage.Stage;
-
-public class VistaTablaSinPropiedades extends Application {
 	
 	public static class Personaje {
 		private String nombre;
@@ -247,16 +154,12 @@ public class VistaTablaSinPropiedades extends Application {
 
 	}
 	
-	private TableView&lt;Personaje&gt; tvPersonajes;
-	final ObservableList&lt;Personaje&gt; personajes = FXCollections.observableArrayList(
+	private static final ObservableList&lt;Personaje&gt; PERSONAJES = FXCollections.observableArrayList(
 			new Personaje("Pepito", "Grillo"),
 			new Personaje("Bob", "Esponja"),
 			new Personaje("Juan", "Sin Miedo"),
 			new Personaje("Perico", "De Los Palotes"),
 			new Personaje("Juana", "La Loca"));
-	
-	TableColumn&lt;Personaje, String&gt; columnaNombre = new TableColumn&lt;Personaje, String&gt;("Nombre");
-	TableColumn&lt;Personaje, String&gt; columnaApellidos = new TableColumn&lt;Personaje, String&gt;("Apellidos");
 
 	@Override
 	public void start(Stage escenarioPrincipal) {
@@ -266,17 +169,18 @@ public class VistaTablaSinPropiedades extends Application {
 			raiz.setSpacing(10);
 			
 			Label lbPersonajes = new Label("Personajes:");
-			tvPersonajes = new TableView&lt;Personaje&gt;();
+			TableView&lt;Personaje&gt; tvPersonajes = new TableView&lt;&gt;();
+			TableColumn&lt;Personaje, String&gt; columnaNombre = new TableColumn&lt;&gt;("Nombre");
+			TableColumn&lt;Personaje, String&gt; columnaApellidos = new TableColumn&lt;&gt;("Apellidos");
 			tvPersonajes.getColumns().add(columnaNombre);
 			tvPersonajes.getColumns().add(columnaApellidos);
 			tvPersonajes.getSelectionModel().setSelectionMode(SelectionMode.MULTIPLE);
-			tvPersonajes.setEditable(true);
 			columnaNombre.setMinWidth(100);
-			columnaNombre.setCellValueFactory(new PropertyValueFactory&lt;Personaje, String&gt;("nombre"));
+			columnaNombre.setCellValueFactory(new PropertyValueFactory&lt;&gt;("nombre"));
 			columnaApellidos.setMinWidth(100);
-			columnaApellidos.setCellValueFactory(new PropertyValueFactory&lt;Personaje, String&gt;("apellidos"));
+			columnaApellidos.setCellValueFactory(new PropertyValueFactory&lt;&gt;("apellidos"));
 
-			tvPersonajes.setItems(personajes);
+			tvPersonajes.setItems(PERSONAJES);
 			
 			raiz.getChildren().addAll(lbPersonajes, tvPersonajes);
 			
@@ -292,8 +196,8 @@ public class VistaTablaSinPropiedades extends Application {
 	public static void main(String[] args) {
 		launch(args);
 	}
-
-}</code></pre>
+}
+</code></pre>
 </div>
 </div>
 <p></p>

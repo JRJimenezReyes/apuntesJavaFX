@@ -78,6 +78,7 @@
    <li><a href="fxml.html" class="daddy">FXML</a>
    <ul class="other-section">
       <li><a href="scenebuilder.html" class="no-ch">SceneBuilder</a></li>
+      <li><a href="comunicacin_entre_ventanas.html" class="no-ch">Comunicación entre ventanas</a></li>
    </ul>
    </li>
    <li><a href="cdigo_de_los_ejemplos.html" class="no-ch">Código de los ejemplos</a></li>
@@ -95,10 +96,10 @@
 <div class="iDevice emphasis0">
 <div id="ta17_154" class="block iDevice_content">
 <p>Este control es muy simple y lo único que muestra es una línea de separación, horizontal o vertical, entre elementos. Este control no permite al usuario interaccionar con él y sólo se utiliza para mejorar la visualización de otros elementos.</p>
-<p>El separador pertenece a la clase <strong>javafx.scene.control.Separator</strong>.</p>
+<p>El separador pertenece a la clase <code><strong>javafx.scene.control.Separator</strong></code>.</p>
 <p><img src="Captura_de_pantalla_de_2018-04-10_20-08-52.png" style="display: block; margin-left: auto; margin-right: auto;" width="372" height="350" /></p>
 <p>El código utilizado para crear esta interfaz es el siguiente:</p>
-<div class="highlighted-code language-java">
+<div class="highlighted-code code-style-2 language-java">
 <div>
 <pre><code>package javafx.controles;
 
@@ -128,9 +129,9 @@ public class Separadores extends Application {
 			
 			ComboBox&lt;Object&gt; cbExtras = new ComboBox&lt;&gt;();
 			Separator separador = new Separator();
-			ObservableList&lt;Object&gt; laborables = FXCollections.observableArrayList(
+			ObservableList&lt;Object&gt; dias = FXCollections.observableArrayList(
 					"Lunes", "Martes", "Miércoles", "Jueves", "Viernes", separador, "Sábado", "Domingo");
-			cbExtras.getItems().addAll(laborables);
+			cbExtras.getItems().addAll(dias);
 			
 			raiz.getChildren().addAll(lbElige, cbExtras);
 			

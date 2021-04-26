@@ -78,6 +78,7 @@
    <li><a href="fxml.html" class="daddy">FXML</a>
    <ul class="other-section">
       <li><a href="scenebuilder.html" class="no-ch">SceneBuilder</a></li>
+      <li><a href="comunicacin_entre_ventanas.html" class="no-ch">Comunicación entre ventanas</a></li>
    </ul>
    </li>
    <li><a href="cdigo_de_los_ejemplos.html" class="no-ch">Código de los ejemplos</a></li>
@@ -95,12 +96,12 @@
 <div class="iDevice emphasis0">
 <div id="ta16_154" class="block iDevice_content">
 <p>Las cajas combinadas con muy similares a las cajas de elección, aunque algo más versátiles ya que permiten añadir una barra de desplazamiento si el contenido excede un límite dado y también permite editar los elementos que la componen.</p>
-<p>Las cajas combinadas pertenecen a la clase <strong>javafx.scene.control.ComboBox</strong>.</p>
-<p>Necesita tener asociado un modelo de una clase que implemente la interfaz <strong>javafx.collections.ObservableList</strong> que indicará las diferentes opciones a mostrar y que podremos asociar a la caja combinada mediante su método <strong>setItems</strong>.</p>
-<p>La imagen muestra una caja combinada que contiene tres opciones pero que muestra sólo dos y una barra de desplazamiento ya que hemos fijado el número de filas a mostrar a 2 mediante el método <strong>setVisibleRowCount</strong>.</p>
+<p>Las cajas combinadas pertenecen a la clase <code><strong>javafx.scene.control.ComboBox</strong></code>.</p>
+<p>Necesita tener asociado un modelo de una clase que implemente la interfaz <code><strong>javafx.collections.ObservableList</strong></code> que indicará las diferentes opciones a mostrar y que podremos asociar a la caja combinada mediante su método <code><strong>setItems</strong></code>.</p>
+<p>La imagen muestra una caja combinada que contiene tres opciones pero que muestra sólo dos y una barra de desplazamiento ya que hemos fijado el número de filas a mostrar a 2 mediante el método <code><strong>setVisibleRowCount</strong></code>.</p>
 <p><img src="Captura_de_pantalla_de_2018-04-10_19-39-01.png" style="display: block; margin-left: auto; margin-right: auto;" width="372" height="258" /></p>
 <p>El código utilizado para crear esta interfaz es el siguiente:</p>
-<div class="highlighted-code language-java">
+<div class="highlighted-code code-style-2 language-java">
 <div>
 <pre><code>package javafx.controles;
 

@@ -78,6 +78,7 @@
    <li><a href="fxml.html" class="daddy">FXML</a>
    <ul class="other-section">
       <li><a href="scenebuilder.html" class="no-ch">SceneBuilder</a></li>
+      <li><a href="comunicacin_entre_ventanas.html" class="no-ch">Comunicación entre ventanas</a></li>
    </ul>
    </li>
    <li><a href="cdigo_de_los_ejemplos.html" class="no-ch">Código de los ejemplos</a></li>
@@ -95,17 +96,18 @@
 <div class="iDevice emphasis0">
 <div id="ta22_154" class="block iDevice_content">
 <p>Este control nos permite mostrar información contextual para cualquier otro control.</p>
-<p>El control información contextual pertenece a la clase<strong> javafx.scene.control.Tooltip</strong>. Para asociar información contextual a otro control se utiliza el método <strong>setTooltip</strong> del control pasándole como parámetro la información contextual.</p>
+<p>El control información contextual pertenece a la clase<code><strong> javafx.scene.control.Tooltip</strong></code>. Para asociar información contextual a otro control se utiliza el método <code><strong>setTooltip</strong></code> del control pasándole como parámetro la información contextual.</p>
 <p>La siguiente imagen muestra el aspecto de la información contextual asociada a un botón. Dicha información le he asociado texto y una imagen.</p>
 <p><img src="Captura_de_pantalla_de_2018-04-10_23-54-46.png" style="display: block; margin-left: auto; margin-right: auto;" width="447" height="264" /></p>
 <p>El código utilizado para crear esta interfaz es el siguiente:</p>
-<div class="highlighted-code language-java">
+<div class="highlighted-code code-style-2 language-java">
 <div>
-<pre><code>package javafx.controles;
+<pre><code>	package javafx.controles;
 	
 import javafx.application.Application;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
+import javafx.recursos.LocalizadorRecursos;
 import javafx.stage.Stage;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
@@ -127,14 +129,14 @@ public class InformacionContextual extends Application {
 			
 			Button btBeber = new Button();
 						
-			Image imgCerveza = new Image(getClass().getResourceAsStream("../imagenes/iconoCerveza.png"), 50, 50, true, true);
+			Image imgCerveza = new Image(LocalizadorRecursos.class.getResourceAsStream("imagenes/iconoCerveza.png"), 50, 50, true, true);
 			btBeber.setGraphic(new ImageView(imgCerveza));
 			btBeber.setText("Beber");
 			btBeber.setGraphicTextGap(20);
 			btBeber.setFont(Font.font("Ani", 30));
 			
 			Tooltip infoCerveza = new Tooltip("Haz un descanso y bébete una cerveza, pero no se te ocurra abusar");
-			Image imgApagar = new Image(getClass().getResourceAsStream("../imagenes/iconoApagar.png"), 50, 50, true, true);
+			Image imgApagar = new Image(LocalizadorRecursos.class.getResourceAsStream("imagenes/iconoApagar.png"), 50, 50, true, true);
 			infoCerveza.setGraphic(new ImageView(imgApagar));
 			infoCerveza.setFont(Font.font(15));
 			infoCerveza.setPrefWidth(200);

@@ -78,6 +78,7 @@
    <li id="active"><a href="fxml.html" class="active daddy">FXML</a>
    <ul>
       <li><a href="scenebuilder.html" class="no-ch">SceneBuilder</a></li>
+      <li><a href="comunicacin_entre_ventanas.html" class="no-ch">Comunicación entre ventanas</a></li>
    </ul>
    </li>
    <li><a href="cdigo_de_los_ejemplos.html" class="no-ch">Código de los ejemplos</a></li>
@@ -94,28 +95,26 @@
 <div class="iDevice_wrapper FreeTextfpdIdevice" id="id31">
 <div class="iDevice emphasis0">
 <div id="ta31_154" class="block iDevice_content">
-<p>Además de la forma que hemos visto de diseñar interfaces, JavaFX nos ofrece otra forma que hace que el diseño de interfaces sea aún más sencillo y visual. Utilizando JXML separamos el diseño de la interfaz de la lógica de la misma y así haremos que nuestro código sea mucho más fácil de mantener.</p>
+<p>Además de la forma que hemos visto de diseñar interfaces, JavaFX nos ofrece otra forma que hace que el diseño de interfaces sea aún más sencillo y visual. Utilizando FXML separamos el diseño de la interfaz de la lógica de la misma y así haremos que nuestro código sea mucho más fácil de mantener.</p>
 <p>FXML no es más que un lenguaje basado en XML que contiene la definición del diseño de nuestra interfaz y que luego podemos cargar desde nuestra aplicación JavaFX y así evitarnos todo el código necesario para el diseño de la misma.</p>
-<p>Desde nuestro IDE, bien usemos NetBeans o Eclipse, podemos crear aplicaciones JavaFX que utilicen FXML y que nos crea el fichero FXML, el controlador para dicha vista y un esqueleto de aplicación que carga dicho fichero para que nuestra aplicación muestre la interfaz definida en el fichero FXML.</p>
 <p>La siguiente imagen muestra una interfaz muy simple que hemos creado para ejemplificar el uso de FXML.</p>
 <p><img src="Captura_de_pantalla_de_2018-04-13_16-44-51.png" style="display: block; margin-left: auto; margin-right: auto;" width="274" height="303" /></p>
-<p>La siguiente imagen muestra la estructura de dicho proyecto usando FXML.</p>
-<p><img src="Captura_de_pantalla_de_2018-04-13_12-06-26.png" style="display: block; margin-left: auto; margin-right: auto;" width="335" height="226" /></p>
+<p>La siguiente imagen muestra la estructura de dicho proyecto usando FXML, dentro de nuestro proyecto con todos los ejemplos.</p>
+<p><img src="Captura_de_pantalla_de_2021-04-22_23-14-00.png" style="display: block; margin-left: auto; margin-right: auto;" width="310" height="699" /></p>
 <p>Ahora os dejo el código de cada uno de los ficheros del mismo.</p>
 <h2 style="text-align: center;">Ejemplo.fxml</h2>
-<div class="highlighted-code language-markup">
+<div class="highlighted-code code-style-2 language-markup">
 <div>
 <pre><code>&lt;?xml version="1.0" encoding="UTF-8"?&gt;
 
-&lt;?import javafx.geometry.*?&gt;
-&lt;?import javafx.scene.text.*?&gt;
-&lt;?import javafx.scene.control.*?&gt;
-&lt;?import java.lang.*?&gt;
-&lt;?import javafx.scene.layout.*?&gt;
+&lt;?import javafx.geometry.Insets?&gt;
+&lt;?import javafx.scene.control.Button?&gt;
+&lt;?import javafx.scene.control.Label?&gt;
+&lt;?import javafx.scene.layout.HBox?&gt;
 &lt;?import javafx.scene.layout.VBox?&gt;
+&lt;?import javafx.scene.text.Font?&gt;
 
-
-&lt;VBox alignment="CENTER" prefHeight="267.0" prefWidth="274.0" spacing="30.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8" fx:controller="<strong>aplicacion.EjemploControlador</strong>"&gt;
+&lt;VBox alignment="CENTER" prefHeight="267.0" prefWidth="274.0" spacing="30.0" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="javafx.aplicacionfxml.controladores.Ejemplo"&gt;
    &lt;children&gt;
       &lt;Label text="Ejemplo de aplicacion utilizando FXML" textAlignment="CENTER" textFill="#0f62f2" wrapText="true"&gt;
          &lt;font&gt;
@@ -124,7 +123,7 @@
       &lt;/Label&gt;
       &lt;HBox alignment="CENTER_RIGHT" prefHeight="48.0" prefWidth="274.0"&gt;
          &lt;children&gt;
-            &lt;Button fx:id="<strong>btCerrar</strong>" mnemonicParsing="false" onAction="#<strong>cerrar</strong>" style="-fx-base: #dc143c;" text="Cerrar"&gt;
+            &lt;Button fx:id="btCerrar" mnemonicParsing="false" onAction="#cerrar" text="Cerrar"&gt;
                &lt;font&gt;
                   &lt;Font size="18.0" /&gt;
                &lt;/font&gt;
@@ -142,44 +141,49 @@
 </code></pre>
 </div>
 </div>
-<h2 style="text-align: center;">EjemploControlador.java</h2>
-<div class="highlighted-code language-java">
+<h2 style="text-align: center;">Ejemplo.java</h2>
+<div class="highlighted-code code-style-2 language-java">
 <div>
-<pre><code>package aplicacion;
+<pre><code>package javafx.aplicacionfxml.controladores;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
+import javafx.stage.Stage;
 
-public class EjemploControlador {
-<strong>	@FXML</strong>
-	private Button <strong>btCerrar</strong>;
+public class Ejemplo {
+	@FXML
+	private Button btCerrar;
 	
-<strong>	@FXML</strong>
-	private void <strong>cerrar</strong>() {
-		System.exit(0);
+	@FXML
+	private void cerrar() {
+		((Stage) btCerrar.getParent().getScene().getWindow()).close();
 	}
+
 }
 </code></pre>
 </div>
 </div>
-<h2 style="text-align: center;">Principal.java</h2>
-<div class="highlighted-code language-java">
+<h2 style="text-align: center;">MainApp.java</h2>
+<div class="highlighted-code code-style-2 language-java">
 <div>
-<pre><code>package aplicacion;
+<pre><code>package javafx.aplicacionfxml;
 	
 import javafx.application.Application;
 import javafx.stage.Stage;
 import javafx.scene.Scene;
 import javafx.scene.layout.VBox;
 import javafx.fxml.FXMLLoader;
+import javafx.recursos.LocalizadorRecursos;
 
 
-public class Principal extends Application {
+public class MainApp extends Application {
 	@Override
 	public void start(Stage escenarioPrincipal) {
 		try {
-<strong>			VBox raiz = (VBox)FXMLLoader.load(getClass().getResource("Ejemplo.fxml"));</strong>
+			Parent raiz = FXMLLoader.load(LocalizadorRecursos.class.getResource("vistas/Ejemplo.fxml"));
 			Scene escena = new Scene(raiz);
+			escena.getStylesheets().add(LocalizadorRecursos.class.getResource("estilos/aplicacion.css").toExternalForm());
+			escenarioPrincipal.setTitle("Ejemplo FXML");
 			escenarioPrincipal.setScene(escena);
 			escenarioPrincipal.show();
 		} catch(Exception e) {
@@ -190,24 +194,27 @@ public class Principal extends Application {
 	public static void main(String[] args) {
 		launch(args);
 	}
-}
-</code></pre>
+}</code></pre>
 </div>
 </div>
-<p>Podemos ver como nuestra aplicación queda muy simple, ya que lo único que hace es cargar el fichero jxml, lo interpreta y nos devuelve el nodo raíz de la estructura de nodos de nuestra interfaz, que en nuestro caso es un <strong>VBox</strong>. Esto se hace mediante la línea:</p>
-<pre><code><strong>			VBox raiz = (VBox)FXMLLoader.load(getClass().getResource("Ejemplo.fxml"));</strong></code></pre>
-<p>Si nos fijamos en el fichero <strong>Ejemplo.fxml</strong> se indica:</p>
-<ul>
+<p>Podemos ver como nuestra aplicación queda muy simple, ya que lo único que hace es cargar el fichero fxml, lo interpreta y nos devuelve el nodo raíz de la estructura de nodos de nuestra interfaz, que en nuestro caso es un <code><strong>VBox</strong></code>, pero que podemos utilizar la clase contenedora <strong><code>Parent</code></strong> y que así nos sirva para cualquiera.  Esto se hace mediante la línea:<code><strong></strong></code></p>
+<div class="highlighted-code code-style-2 language-java">
+<div>
+<pre><code>Parent raiz = FXMLLoader.load(LocalizadorRecursos.class.getResource("vistas/Ejemplo.fxml"));</code><code><strong><br /></strong></code></pre>
+</div>
+</div>
+<p>Si nos fijamos en el fichero <code><strong>Ejemplo.fxml</strong></code> se indica:</p>
+<ul class="lista_verificacion">
 <li>La estructura jerárquica de nuestra interfaz con sus diferentes nodos y propiedades que hayamos modificado.</li>
-<li>Quién será el controlador para dicha vista ( <code>fx:controller="<strong>aplicacion.EjemploControlador</strong>"</code>)</li>
+<li>Quién será el controlador para dicha vista ( <code>fx:controller="javafx.aplicacionfxml.controladores.Ejemplo"</code>)</li>
 <li>El nombre de un botón al que luego podremos hacer referencia en el controlador (<code>fx:id="<strong>btCerrar</strong>"</code>).</li>
 <li>El nombre de un método que será el encargado de manejar el evento al pulsar dicho botón (<code>onAction="#<strong>cerrar</strong>"</code>).</li>
 </ul>
-<p>El fichero <strong>EjemploControlador.java</strong> es el controlador para la vista anterior, que en nuestro caso es muy simple. Podemos destacar las anotaciones<strong> <code><strong>@FXML</strong></code> </strong>que son las que permiten hacer el mapeo entre los elementos de la vista y del controlador. Estas anotaciones no serían necesarias si el modificador de acceso fuese <strong>public</strong>, pero al ser <strong>private</strong> que es lo recomendado, sí son necesarias.</p>
-<p>Además en un controlador podemos añadir el método <strong>initialize</strong> (con la anotación <strong>@FXML</strong>) con lo que nos quedaría un controlador con el siguiente código, que ejecutará el código de inicialización para la interfaz y en el que podremos asignar modelos a controles o registrar nuevos métodos manejadores para los controles.</p>
-<div class="highlighted-code language-java">
+<p>El fichero <code><strong>Ejemplo.java</strong></code> es el controlador para la vista anterior, que en nuestro caso es muy simple. Podemos destacar las anotaciones<strong> <code><strong>@FXML</strong></code> </strong>que son las que permiten hacer el mapeo entre los elementos de la vista y del controlador. Estas anotaciones no serían necesarias si el modificador de acceso fuese <code><strong>public</strong></code>, pero al ser <code><strong>private</strong></code>, que es lo recomendado, sí son necesarias.</p>
+<p>Además en un controlador podemos añadir el método <code><strong>initialize</strong></code> (con la anotación <code><strong>@FXML</strong></code>) con lo que nos quedaría un controlador con el siguiente código, que ejecutará el código de inicialización para la interfaz y en el que podremos asignar modelos a controles o registrar nuevos métodos manejadores para los controles.</p>
+<div class="highlighted-code code-style-2 language-java">
 <div>
-<pre><code>public class MiControlador implements Initializable {
+<pre><code>public class MiControlador {
     @FXML private Button button;
 
     @FXML
@@ -215,6 +222,8 @@ public class Principal extends Application {
         //Aquí podemos asignar modelos a controles
         //También podemos registrar manejadores de eventos
     }
+    ...
+    ...
 }</code></pre>
 </div>
 </div>

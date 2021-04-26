@@ -78,6 +78,7 @@
    <li><a href="fxml.html" class="daddy">FXML</a>
    <ul class="other-section">
       <li><a href="scenebuilder.html" class="no-ch">SceneBuilder</a></li>
+      <li><a href="comunicacin_entre_ventanas.html" class="no-ch">Comunicación entre ventanas</a></li>
    </ul>
    </li>
    <li><a href="cdigo_de_los_ejemplos.html" class="no-ch">Código de los ejemplos</a></li>
@@ -95,16 +96,16 @@
 <div class="iDevice emphasis0">
 <div id="ta29_154" class="block iDevice_content">
 <p>Antes de empezar a trabajar con las interfaces gráficas de usuario debemos saber cómo diseñarlas:</p>
-<ul>
+<ul class="lista_verificacion">
 <li>De qué elementos pueden estar compuestas</li>
 <li>Para qué podemos utilizar cada uno de estos elementos.</li>
 <li>Cómo distribuir dichos elementos en las interfaces.</li>
 <li>Las diferentes posibilidades que nos ofrece JavaFX para llevar a cabo este diseño, etc.</li>
 </ul>
-<p>Para ello primero mostraré cómo diseñar las interfaces gráficas de usuario utilizando código para ello y luego veremos la alternativa a la utilización del código que nos ofrece JavaFX mediante el uso de ficheros XML (llamados en JavaFX JXML).</p>
-<p>Al crear una aplicación JavaFX con nuestro IDE (NetBeans o Eclipse) se nos creará una clase principal para dicha aplicación con un esqueleto básico para la misma. El esqueleto que genera Netbeans es algo más completo que el que genera Eclipse, aunque personalmente prefiero el esqueleto simple que genera Eclipse.</p>
+<p>Para ello primero mostraré cómo diseñar las interfaces gráficas de usuario utilizando código para ello y luego veremos la alternativa a la utilización del código que nos ofrece JavaFX mediante el uso de ficheros XML (llamados en JavaFX FXML).</p>
+<p>Un esqueleto básico de una aplicación JavaFx podría ser el que muestro en la plantilla. En Java FX solemos tener un escenario principal en el que podemos mostrar una o varias escenas. Éstas escenas serán las que contendrán la jerarquía de nodo, partiendo de un nodo raíz.</p>
 <p>Aún así, os dejo el código básico que debe contener el esqueleto de una aplicación JavaFX:</p>
-<div class="highlighted-code language-java">
+<div class="highlighted-code code-style-2 language-java">
 <div>
 <pre><code>import javafx.application.Application;
 import javafx.scene.Scene;

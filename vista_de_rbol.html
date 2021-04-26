@@ -78,6 +78,7 @@
    <li><a href="fxml.html" class="daddy">FXML</a>
    <ul class="other-section">
       <li><a href="scenebuilder.html" class="no-ch">SceneBuilder</a></li>
+      <li><a href="comunicacin_entre_ventanas.html" class="no-ch">Comunicación entre ventanas</a></li>
    </ul>
    </li>
    <li><a href="cdigo_de_los_ejemplos.html" class="no-ch">Código de los ejemplos</a></li>
@@ -95,12 +96,12 @@
 <div class="iDevice emphasis0">
 <div id="ta14_154" class="block iDevice_content">
 <p>La vista en árbol es otro control muy potente ya que permite mostrar una jerarquía de elementos, los cuales podemos seleccionar e incluso editar.</p>
-<p>Una vista de árbol pertenece a la clase <strong>javafx.scene.control.TreeView</strong>. Cada elemento del árbol pertenece a la clase <strong>javafx.scene.control.TreeItem</strong>.</p>
-<p>Necesita tener asociado un modelo que consistirá en la raíz del árbol del tipo <strong>TreeItem</strong> y que ésta a su vez estará formada por diferentes elementos del tipo <strong>TreeItem</strong> de forma recursiva. Los nodos podemos mostrarlos expandidos o contraidos mediante el método <strong>setExpanded</strong>.</p>
+<p>Una vista de árbol pertenece a la clase <code><strong>javafx.scene.control.TreeView</strong></code>. Cada elemento del árbol pertenece a la clase <code><strong>javafx.scene.control.TreeItem</strong></code>.</p>
+<p>Necesita tener asociado un modelo que consistirá en la raíz del árbol del tipo <code><strong>TreeItem</strong></code> y que ésta a su vez estará formada por diferentes elementos del tipo <code><strong>TreeItem</strong></code> de forma recursiva. Los nodos podemos mostrarlos expandidos o contraidos mediante el método <code><strong>setExpanded</strong></code>.</p>
 <p>En la imagen siguiente se muestra una vista de árbol de personajes (con sus nombres y apellidos) clasificados jerárquicamente en masculinos y femeninos.</p>
 <p><img src="Captura_de_pantalla_de_2018-04-09_20-50-21.png" style="display: block; margin-left: auto; margin-right: auto;" width="300" height="316" /></p>
 <p>El código utilizado para crear esta interfaz es el siguiente:</p>
-<div class="highlighted-code language-java">
+<div class="highlighted-code code-style-2 language-java">
 <div>
 <pre><code>package javafx.controles;
 
@@ -159,7 +160,9 @@ public class VistaArbol extends Application {
 		launch(args);
 	}
 
-}</code></pre>
+}
+
+</code></pre>
 </div>
 </div>
 </div>

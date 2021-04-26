@@ -78,6 +78,7 @@
    <li><a href="fxml.html" class="daddy">FXML</a>
    <ul class="other-section">
       <li><a href="scenebuilder.html" class="no-ch">SceneBuilder</a></li>
+      <li><a href="comunicacin_entre_ventanas.html" class="no-ch">Comunicación entre ventanas</a></li>
    </ul>
    </li>
    <li><a href="cdigo_de_los_ejemplos.html" class="no-ch">Código de los ejemplos</a></li>
@@ -95,17 +96,18 @@
 <div class="iDevice emphasis0">
 <div id="ta27_154" class="block iDevice_content">
 <p>EL control de paginación es un control que permite navegar por múltiples páginas de contenido que están divididas en partes similares. Por ejemplo, nos podría servir para mostrar diferentes imágenes, cada una en una página. Este control mostrará además de cada página, un área de navegación con una flecha para retroceder de página, otra para avanzar y diferentes números que podemos pulsar para acceder directamente a dicha página. La cantidad de números a mostrar es configurable.</p>
-<p>El control de paginación pertenece a la clase <strong>javafx.scene.control.Pagination</strong>.</p>
-<p>Para crear el control simplemente le decimos el número de páginas a crear. También podemos indicar la página a mostrar. Una vez hecho esto, deberemos indicar cómo se creará cada página mediante el método <strong>setPageFactory</strong> al que le indicaremos el método que creará la página dependiendo de su índice.</p>
+<p>El control de paginación pertenece a la clase <code><strong>javafx.scene.control.Pagination</strong></code>.</p>
+<p>Para crear el control simplemente le decimos el número de páginas a crear. También podemos indicar la página a mostrar. Una vez hecho esto, deberemos indicar cómo se creará cada página mediante el método <code><strong>setPageFactory</strong></code> al que le indicaremos el método que creará la página dependiendo de su índice.</p>
 <p>La siguiente imagen muestra un control de paginación con dos páginas que cada una muestra una imagen y que por defecto muestra la segunda página.</p>
 <p><img src="Captura_de_pantalla_de_2018-04-11_10-18-54.png" style="display: block; margin-left: auto; margin-right: auto;" width="240" height="326" /></p>
 <p>El código utilizado para crear esta interfaz es el siguiente:</p>
-<div class="highlighted-code language-java">
+<div class="highlighted-code code-style-2 language-java">
 <div>
 <pre><code>package javafx.controles;
 	
 import javafx.application.Application;
 import javafx.geometry.Insets;
+import javafx.recursos.LocalizadorRecursos;
 import javafx.scene.Scene;
 import javafx.scene.control.Pagination;
 import javafx.scene.image.Image;
@@ -120,10 +122,10 @@ public class Paginacion extends Application {
 		VBox raizPagina = new VBox(10);
 		raizPagina.setPadding(new Insets(0, 0, 10, 0));
 		if (indice == 0) {
-			Image logo = new Image(getClass().getResourceAsStream("../imagenes/logo-ies.png"), 200, 200, true, true);
+			Image logo = new Image(LocalizadorRecursos.class.getResourceAsStream("imagenes/logo-ies.png"), 200, 200, true, true);
 			raizPagina.getChildren().add(new ImageView(logo));
 		} else if (indice == 1) {
-			Image logo = new Image(getClass().getResourceAsStream("../imagenes/logo-ies2.png"), 200, 200, true, true);
+			Image logo = new Image(LocalizadorRecursos.class.getResourceAsStream("imagenes/logo-ies2.png"), 200, 200, true, true);
 			raizPagina.getChildren().add(new ImageView(logo));
 		} else {
 			raizPagina = null;
@@ -137,7 +139,7 @@ public class Paginacion extends Application {
 			VBox raiz = new VBox(10);
 			raiz.setPadding(new Insets(20, 20, 20, 20));
 			Pagination paginacion = new Pagination(2, 1);
-			paginacion.setPageFactory((Integer indicePagina) -&gt; creaPagina(indicePagina));
+			paginacion.setPageFactory(indicePagina -&gt; creaPagina(indicePagina));
 			
 			raiz.getChildren().addAll(paginacion);
 			
