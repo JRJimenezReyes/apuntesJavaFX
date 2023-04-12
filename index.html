@@ -11,7 +11,7 @@
 <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
 <meta http-equiv="content-language" content="es" />
 <meta name="author" content="José Ramón Jiménez Reyes" />
-<meta name="generator" content="eXeLearning 2.5.1 - exelearning.net" />
+<meta name="generator" content="eXeLearning 2.7 - exelearning.net" />
 <script type="text/javascript" src="exe_jquery.js"></script>
 <script type="text/javascript" src="exe_effects.js"></script>
 <script type="text/javascript" src="exe_highlighter.js"></script>
@@ -139,18 +139,18 @@
 <div>
 <pre><code>plugins {
     id 'application'
-    id 'org.openjfx.javafxplugin' version '0.0.9'
+    id 'org.openjfx.javafxplugin' version '0.0.13'
 }
 
 repositories {
-    jcenter()
+    mavenCentral()
 }
 
-dependencies {
+dependencies {<br />    // Depenedencias del proyecto
 }
 
 javafx {
-    version = "15.0.1"
+    version = "17"
     modules = [ 'javafx.controls', 'javafx.fxml' ]
 }
 
@@ -173,7 +173,7 @@ jar {
 <p><img src="Captura_de_pantalla_de_2021-04-13_17-00-48.png" alt="" style="display: block; margin-left: auto; margin-right: auto;" width="1640" height="924" /></p>
 <p><img src="Captura_de_pantalla_de_2021-04-13_17-02-09.png" alt="" style="display: block; margin-left: auto; margin-right: auto;" width="1640" height="924" /></p>
 <p><img src="Captura_de_pantalla_de_2021-04-13_17-02-49.png" alt="" style="display: block; margin-left: auto; margin-right: auto;" width="1640" height="924" /></p>
-<p>Si te das cuenta, en este ejemplo hemos colocado el fichero <code>.fxml</code> en otro directorio aunque bajo el mismo paquete. Esta es lo forma correcta de trabajar con recursos para que luego funcione todo correctamente. A veces es recomendable estrucutrar los recursos en diferentes paquetes: <code>imagenes</code>, <code>vistas</code> (con los ficheros <code>.fxml</code>), <code>estilo</code> (con los ficheros <code>.css</code>), etc. En este caso lo mejor sería utilizar una interfaz marcadora a la altura del paquete con los demás subpaquetes y utilizar ésta para acceder a ese paquete ya que con el método <code>getResource</code> no podemos utilizar el <code>..</code> ni el <code>.</code> para navegar por los paquetes.</p>
+<p>Si te das cuenta, en este ejemplo hemos colocado el fichero <code>.fxml</code> en otro directorio aunque bajo el mismo paquete. Esta es lo forma correcta de trabajar con recursos para que luego funcione todo correctamente. A veces es recomendable estructurar los recursos en diferentes paquetes: <code>imagenes</code>, <code>vistas</code> (con los ficheros <code>.fxml</code>), <code>estilo</code> (con los ficheros <code>.css</code>), etc. En este caso lo mejor sería utilizar una interfaz marcadora a la altura del paquete con los demás subpaquetes y utilizar ésta para acceder a ese paquete ya que con el método <code>getResource</code> no podemos utilizar el <code>..</code> ni el <code>.</code> para navegar por los paquetes.</p>
 <p><img src="Captura_de_pantalla_de_2021-04-13_17-15-28.png" alt="" style="display: block; margin-left: auto; margin-right: auto;" width="1640" height="924" /></p>
 <p>De esta forma podríamos localizar un recurso fácilmente desde cualquier otro paquete y que nos funcionase tanto en el IDE como en el fichero empaquetado jar. Por ejemplo:</p>
 <div class="highlighted-code code-style-2 language-java">
@@ -184,9 +184,11 @@ jar {
 	escena.getStylesheets().add(LocalizadorRecursos.class.getResource("estilos/estilos.css").toExternalForm());</code></pre>
 </div>
 </div>
+<p>Lo explicado aquí se hizo con una versión del plugin de gradle para Eclipse anterior y con JavaFX 11. Aunque todo es correcto, ahora la versión adecuada a utilizar es la 17 (última LTS a día de hoy), por eso ya he actualizado el <code>build.gradle</code> en el código anterior, aunque no he actualizado los pantallazos.</p>
+<p>Ahora el plugin de gradle para elicpse genera una estructura algo diferente y es más tedioso acomodarlo a como lo hemos explicado, por lo que he creado un repositorio en github con el esqueleto y con las instrucciones para adecuarlo a tus necesidades.</p>
+<p style="text-align: center;"><a href="https://github.com/JRJimenezReyes/EsqueletoGradleJavaFX" target="_blank" title="Acceder al repositorio" rel="noopener">Repositorio GitHub con el esqueto de proyecto gradle y las dependencias de JavaFX</a></p>
 </div>
 <ol style="list-style-type: decimal;" class=" auto-numbered"></ol>
-<p></p>
 <p>A continuación os dejo el enlace a la página de Oracle sobre JavaFX donde podréis encontrar multitud de documentación y ejemplos, aunque si buscáis en la web también encontraréis mucha documentación sobre esta tecnología incluso en castellano.</p>
 <p style="text-align: center;"><a href="https://docs.oracle.com/javase/8/javase-clienttechnologies.htm" title="Acceder a la página de Oracle JavaFX">Oracle JavaFX</a></p>
 <p>Ahora vamos a ir viendo las diferentes posibilidades que nos ofrece JavaFX para crear nuestras aplicaciones.</p>
