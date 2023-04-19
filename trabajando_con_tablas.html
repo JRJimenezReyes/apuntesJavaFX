@@ -1001,7 +1001,7 @@ public class TablaPersonajesPropiedadesCompleta extends Application {
 				return superpoderProperty;
 			});
 			cEstrategia.setMinWidth(60);
-			cEstrategia.setCellValueFactory(new PropertyValueFactory&lt;PersonajePropiedades, Estrategia&gt;("estrategia"));
+			cEstrategia.setCellValueFactory(new PropertyValueFactory&lt;&gt;("estrategia"));
 			cEstrategia.setCellFactory(estrategia -&gt; new ChoiceBoxTableCell&lt;PersonajePropiedades, Estrategia&gt;(Estrategia.values()));
 			cEstrategia.setOnEditCommit(e -&gt; {
 				int indice = PERSONAJES.indexOf(e.getRowValue());
