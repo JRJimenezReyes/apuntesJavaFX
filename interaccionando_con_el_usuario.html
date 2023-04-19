@@ -219,7 +219,18 @@ public class ManejadorClaseAnonima extends Application {
 btEjemplo.setOnAction(e -&gt; botonPulsado(e));</code></pre>
 </div>
 </div>
-El parámetro del método es opcional definirlo. Si lo definimos podremos acceder al objeto evento dentro del método. Si no lo definimos, como es normal, tampoco se le pasará como parámetro.</li>
+El parámetro del método es opcional definirlo. Si lo definimos podremos acceder al objeto evento dentro del método. Si no lo definimos, como es normal, tampoco se le pasará como parámetro.<br />En el caso especial en que en la función lambda simplemente invoca a un método al que se le pasa el parámetro o parámetros, podemos sustituir la función lambda por un selector de métodos:<br />
+<div class="highlighted-code code-style-2 language-java">
+<div>
+<pre><code>private void botonPulsado(ActionEvent event) {
+     System.out.println("Botón pulsado");
+}
+...
+...
+btEjemplo.setOnAction(this::botonPulsado);</code></pre>
+</div>
+</div>
+</li>
 <li>Definiendo las acciones a realizar en la misma expresión lambda que se pasa como parámetro del método <code><strong>setOnTipoEvento</strong></code> del nodo.<br />
 <div class="highlighted-code code-style-2 language-java">
 <div>
