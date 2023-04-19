@@ -133,7 +133,7 @@ public class ListaColores1 extends Application {
 	
 	private Pane panel;
 	
-	private void muestraColor(String color) {
+	private void mostrarColor(String color) {
 		panel.setStyle(ESTILO_PANEL + "-fx-background-color: " + color + ";");
 	}
 	
@@ -151,7 +151,7 @@ public class ListaColores1 extends Application {
 			lbElige.setFont(Font.font(20));
 			ListView&lt;String&gt; lvColores = new ListView&lt;&gt;(COLORES);
 			lvColores.getSelectionModel().select("chocolate");
-			lvColores.getSelectionModel().selectedItemProperty().addListener((ov, viejo, nuevo) -&gt; muestraColor(nuevo));
+			lvColores.getSelectionModel().selectedItemProperty().addListener((ov, viejo, nuevo) -&gt; mostrarColor(nuevo));
 			hbOpciones.getChildren().addAll(lbElige, lvColores);
 			
 			panel = new Pane();
@@ -224,7 +224,7 @@ public class ListaColores2 extends Application {
 
 	private Pane panel;
 	
-	private void muestraColor(String color) {
+	private void mostrarColor(String color) {
 		panel.setStyle(ESTILO_PANEL + "-fx-background-color: " + color + ";");
 	}
 	
@@ -243,7 +243,7 @@ public class ListaColores2 extends Application {
 			ListView&lt;String&gt; lvColores = new ListView&lt;&gt;(COLORES);
 			lvColores.setPrefWidth(80);
 			lvColores.getSelectionModel().select("Red");
-			lvColores.getSelectionModel().selectedItemProperty().addListener((ov, viejo, nuevo) -&gt; muestraColor(nuevo));
+			lvColores.getSelectionModel().selectedItemProperty().addListener((ov, viejo, nuevo) -&gt; mostrarColor(nuevo));
 			lvColores.setCellFactory(l -&gt; new CeldaColor());
 			hbOpciones.getChildren().addAll(lbElige, lvColores);
 			
@@ -323,7 +323,7 @@ public class ListaColores3 extends Application {
 	private Color nuevoColor = Color.WHITE;	
 		
 	
-	private void muestraColor(String color) {
+	private void mostrarColor(String color) {
 		if (color != null) {
 			panel.setStyle(ESTILO_PANEL + "-fx-background-color: " + color + ";");
 			lvColores.getSelectionModel().select(color);
@@ -334,7 +334,7 @@ public class ListaColores3 extends Application {
 		String color = nuevoColor.toString().replace("0x", "#");
 		if (color != null &amp;&amp; !COLORES.contains(color)) {
 			COLORES.add(0, color);
-			muestraColor(color);
+			mostrarColor(color);
 		}
 	}
 	
@@ -361,7 +361,7 @@ public class ListaColores3 extends Application {
 			lvColores = new ListView&lt;&gt;(COLORES);
 			lvColores.setPrefWidth(80);
 			lvColores.getSelectionModel().select("Red");
-			lvColores.getSelectionModel().selectedItemProperty().addListener((ov, viejo, nuevo) -&gt; muestraColor(nuevo));
+			lvColores.getSelectionModel().selectedItemProperty().addListener((ov, viejo, nuevo) -&gt; mostrarColor(nuevo));
 			lvColores.setCellFactory(l -&gt; new CeldaColor());
 			
 			HBox hbAnadir = new HBox(10);
